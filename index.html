@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Page Title -->
+<title>Best Homework Games for Striving Students</title>
+
+<!-- Favicon -->
+<link rel="icon" href="https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png" type="image/png">
+
+<style>
+  body { margin:0; font-family: system-ui, Arial, sans-serif; background:#0f1220; color:#fff; }
+  .topbar { position: fixed; top:0; left:0; right:0; height:60px; background:#11162b; display:flex; align-items:center; padding:0 16px; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.3); }
+  .home-btn { background:none; border:none; color:#fff; font-size:16px; cursor:pointer; margin-right:12px; }
+  .title { font-size:20px; font-weight:600; }
+  .content { padding:100px 24px 40px; max-width:1200px; margin:auto; }
+  .games-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:24px; justify-items:center; }
+  .game-card-container { display:flex; flex-direction:column; align-items:center; cursor:pointer; }
+  .game-card { width:200px; height:200px; border-radius:16px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.35); transition:transform 0.2s ease, box-shadow 0.2s ease; }
+  .game-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,0.5); }
+  .game-card img { width:100%; height:100%; object-fit:contain; display:block; background:#000; }
+  .game-label { width:200px; text-align:center; background:#1c223c; padding:6px 0; font-size:16px; font-weight:600; color:#fff; border-radius:0 0 14px 14px; margin-top:0; }
+  .game-page { display:none; }
+  .game-frame { width:960px; height:641px; max-width:100%; border:none; background:#000; display:block; margin:0 auto 24px; }
+  .review { background:#151a33; padding:18px 20px; border-radius:14px; line-height:1.5; box-shadow:0 8px 20px rgba(0,0,0,0.35); }
+  @media (max-width:1000px) { .game-frame { width:100vw; height:65vw; } .game-card, .game-label { width:100%; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <button class="home-btn" onclick="showHome()">← Home</button>
+  <div class="title">Homework Planet</div>
+</div>
+
+<div class="content">
+
+  <div id="home">
+    <div class="games-grid">
+
+      <!-- SLOPE -->
+      <div class="game-card-container" onclick="openGame('slope')">
+        <div class="game-card">
+          <img src="https://1games.io/data/image/game/slope/banner/slope.jpg" alt="Slope">
+        </div>
+        <div class="game-label">Slope</div>
+      </div>
+
+      <!-- FLAPPY BIRD -->
+      <div class="game-card-container" onclick="openGame('buzzy')">
+        <div class="game-card">
+          <img src="https://techcrunch.com/wp-content/uploads/2014/02/flappy.jpeg" alt="Flappy Bird">
+        </div>
+        <div class="game-label">Flappy Bird</div>
+      </div>
+
+      <!-- MINECRAFT CLASSIC -->
+      <div class="game-card-container" onclick="openGame('minecraft')">
+        <div class="game-card">
+          <img src="https://i.pinimg.com/736x/bd/cb/64/bdcb6414071ce880f3fa1dc18e2eda5b.jpg" alt="Minecraft Classic">
+        </div>
+        <div class="game-label">Minecraft Classic</div>
+      </div>
+
+      <!-- TAG -->
+      <div class="game-card-container" onclick="openGame('tag')">
+        <div class="game-card">
+          <img src="https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=314,height=314,fit=cover,f=auto/32d2b1401c7a86c61fae5afeed977b37/tag.png" alt="Tag">
+        </div>
+        <div class="game-label">Tag</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SLOPE PAGE -->
+  <div id="slope" class="game-page">
+    <iframe class="game-frame" src="slope.html" scrolling="no"></iframe>
+    <div class="review">
+      <strong>How to Play</strong><br><br>
+      In <strong>Slope</strong>, you control a ball racing down a constantly changing track. Your goal is to survive as long as possible by dodging obstacles and staying on the path while the speed increases rapidly.<br><br>
+      <strong>Controls</strong><br><br>
+      Use <strong>A/D</strong> or the <strong>Left/Right Arrow keys</strong> to steer.<br><br>
+      <strong>Developer's Review</strong><br><br>
+      Slope is simple, intense, and extremely addictive. The difficulty curve is brutal in the best way. <strong>4.5/5 stars</strong>.
+    </div>
+  </div>
+
+  <!-- FLAPPY BIRD PAGE -->
+  <div id="buzzy" class="game-page">
+    <iframe class="game-frame" src="buzzy.html" scrolling="no"></iframe>
+    <div class="review">
+      <strong>How to Play</strong><br><br>
+      Guide your bird through tight gaps without touching any obstacles. The longer you survive, the harder it gets.<br><br>
+      <strong>Controls</strong><br><br>
+      Click or tap to flap upward.<br><br>
+      <strong>Developer's Review</strong><br><br>
+      Infuriating, simple, and legendary. A true test of patience. <strong>4/5 stars</strong>.
+    </div>
+  </div>
+
+  <!-- MINECRAFT CLASSIC PAGE -->
+  <div id="minecraft" class="game-page">
+    <iframe class="game-frame" src="eaglercraft.html" scrolling="no"></iframe>
+    <div class="review">
+      <strong>How to Play</strong><br><br>
+      Build, explore, and create freely in this classic version of Minecraft.<br><br>
+      <strong>Controls</strong><br><br>
+      W/A/S/D to move, mouse to look, left-click to break, right-click to place blocks.<br><br>
+      <strong>Developer's Review</strong><br><br>
+      Timeless creativity with no distractions. <strong>5/5 stars</strong>.
+    </div>
+  </div>
+
+  <!-- TAG PAGE -->
+  <div id="tag" class="game-page">
+    <iframe class="game-frame" src="tag.html" scrolling="no"></iframe>
+    <div class="review">
+      <strong>How to Play</strong><br><br>
+      <strong>Tag</strong> is a fast-paced multiplayer chase game. One player is “it” and must catch the others before time runs out. Each round throws you into chaotic arenas where movement and strategy matter more than luck.<br><br>
+      <strong>Controls</strong><br><br>
+      Use <strong>W/A/S/D</strong> or <strong>Arrow keys</strong> to move. If you’re “it,” your goal is to tag another player. If not, run, dodge, and survive.<br><br>
+      <strong>Developer's Review</strong><br><br>
+      Tag is chaotic in the best way. It’s perfect for quick sessions with friends and always feels competitive. Clean mechanics, fun maps, and nonstop action. <strong>4.7/5 stars</strong>.
+    </div>
+  </div>
+
+</div>
+
+<script>
+function openGame(id) {
+  document.getElementById('home').style.display='none';
+  document.getElementById('slope').style.display='none';
+  document.getElementById('buzzy').style.display='none';
+  document.getElementById('minecraft').style.display='none';
+  document.getElementById('tag').style.display='none';
+  document.getElementById(id).style.display='block';
+  window.scrollTo(0,0);
+}
+function showHome() {
+  document.getElementById('home').style.display='block';
+  document.getElementById('slope').style.display='none';
+  document.getElementById('buzzy').style.display='none';
+  document.getElementById('minecraft').style.display='none';
+  document.getElementById('tag').style.display='none';
+  window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
