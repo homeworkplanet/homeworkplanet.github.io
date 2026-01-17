@@ -2,37 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Slope</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Slope Ripoff</title>
+
   <style>
     html, body {
       margin: 0;
-      padding: 0;
       width: 100%;
       height: 100%;
       background: #000;
       overflow: hidden;
     }
-    .game-wrap {
-      position: relative;
+    #game-container {
       width: 100%;
       height: 100%;
-    }
-    iframe {
-      border: none;
     }
   </style>
 </head>
 <body>
-  <div class="game-wrap">
-    <!-- Extreme Slope Embed -->
-    <iframe src="https://idev.games/embed/extreme-slope"
-            scrolling="no"
-            seamless="seamless"
-            frameborder="0"
-            style="width:100%; height:100%;">
-      Browser not compatible
-    </iframe>
-  </div>
+
+<div id="game-container"></div>
+
+<script>
+  const iframe = document.createElement("iframe");
+  iframe.src = "https://idev.games/embed/extreme-slope";
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.border = "0";
+  iframe.allowFullscreen = true;
+  iframe.setAttribute("allow", "fullscreen; autoplay; gamepad");
+  document.getElementById("game-container").appendChild(iframe);
+</script>
+
 </body>
 </html>
