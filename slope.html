@@ -12,7 +12,30 @@
       height: 100%;
       background: #000;
       overflow: hidden;
+      font-family: Arial, sans-serif;
     }
+
+    /* 🔗 SITE LOGO (TOP LEFT) */
+    .site-logo {
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      z-index: 9999;
+    }
+    .site-logo img {
+      height: 36px;
+      width: auto;
+      cursor: pointer;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+    .site-logo img:hover {
+      filter: drop-shadow(0 0 8px rgba(120,160,255,0.8));
+      transform: scale(1.05);
+    }
+    .site-logo img:active {
+      transform: scale(0.95);
+    }
+
     #game-container {
       width: 100%;
       height: 100%;
@@ -21,18 +44,23 @@
 </head>
 <body>
 
-<div id="game-container"></div>
+  <!-- 🔗 HOME LOGO -->
+  <a href="home.html" class="site-logo">
+    <img src="https://i.imgur.com/QXhoS1t.png" alt="Homework Planet Home">
+  </a>
 
-<script>
-  const iframe = document.createElement("iframe");
-  iframe.src = "https://idev.games/embed/extreme-slope";
-  iframe.style.width = "100%";
-  iframe.style.height = "100%";
-  iframe.style.border = "0";
-  iframe.allowFullscreen = true;
-  iframe.setAttribute("allow", "fullscreen; autoplay; gamepad");
-  document.getElementById("game-container").appendChild(iframe);
-</script>
+  <div id="game-container"></div>
+
+  <script>
+    const iframe = document.createElement("iframe");
+    iframe.src = "https://idev.games/embed/extreme-slope";
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "0";
+    iframe.allowFullscreen = true;
+    iframe.setAttribute("allow", "fullscreen; autoplay; gamepad");
+    document.getElementById("game-container").appendChild(iframe);
+  </script>
 
 </body>
 </html>
