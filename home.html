@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,133 +12,92 @@
 
 <style>
   body { 
-    margin:0; 
+    margin: 0; 
     font-family: system-ui, Arial, sans-serif; 
-    background:#0f1220; 
-    color:#fff; 
+    background: #0f1220; 
+    color: #fff; 
   }
 
-  /* 🔗 SITE LOGO (TOP LEFT) */
-
-  /* 🔗 GLOBAL HOME LOGO */
-.site-logo {
-  position: fixed;
-  top: 12px;
-  left: 16px;
-  z-index: 9999;
-}
-
-.site-logo img {
-  height: 36px;
-  width: auto;
-  cursor: pointer;
-  transition: transform 0.15s ease, filter 0.15s ease;
-}
-
-/* ✨ hover glow */
-.site-logo img:hover {
-  filter: drop-shadow(0 0 8px rgba(120,160,255,0.8));
-  transform: scale(1.05);
-}
-
-/* 👇 click press */
-.site-logo img:active {
-  transform: scale(0.95);
-}
+  /* 🔗 GLOBAL HOME LOGO (ALWAYS ON TOP) */
   .site-logo {
     position: fixed;
     top: 12px;
     left: 16px;
-    z-index: 2000;
+    z-index: 9999;
   }
 
   .site-logo img {
     height: 36px;
     width: auto;
     cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
   }
 
-  .topbar { 
-    position: fixed; 
-    top:0; 
-    left:0; 
-    right:0; 
-    height:60px; 
-    background:#11162b; 
-    display:flex; 
-    align-items:center; 
-    padding:0 16px 0 64px; /* space for logo */
-    z-index:1000; 
-    box-shadow:0 2px 10px rgba(0,0,0,0.3); 
+  .site-logo img:hover {
+    filter: drop-shadow(0 0 8px rgba(120,160,255,0.8));
+    transform: scale(1.05);
   }
 
-  .title { 
-    font-size:20px; 
-    font-weight:600; 
+  .site-logo img:active {
+    transform: scale(0.95);
   }
 
   .content { 
-    padding:100px 24px 40px; 
-    max-width:1200px; 
-    margin:auto; 
+    padding: 100px 24px 40px; 
+    max-width: 1200px; 
+    margin: auto; 
   }
 
   .games-grid { 
-    display:grid; 
+    display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
-    gap:20px; 
-    justify-items:center; 
+    gap: 20px; 
+    justify-items: center; 
   }
 
   .game-card-container { 
-    display:flex; 
-    flex-direction:column; 
-    align-items:center; 
-    cursor:pointer; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
   }
 
   .game-card { 
-    width:125px; 
-    height:125px; 
-    border-radius:14px; 
-    overflow:hidden; 
-    box-shadow:0 8px 20px rgba(0,0,0,0.35); 
-    transition:transform 0.2s ease, box-shadow 0.2s ease; 
+    width: 125px; 
+    height: 125px; 
+    border-radius: 14px; 
+    overflow: hidden; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35); 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
   }
 
   .game-card:hover { 
-    transform:translateY(-4px); 
-    box-shadow:0 12px 28px rgba(0,0,0,0.5); 
+    transform: translateY(-4px); 
+    box-shadow: 0 12px 28px rgba(0,0,0,0.5); 
   }
 
   .game-card img { 
-    width:100%; 
-    height:100%; 
-    object-fit:contain; 
-    display:block; 
-    background:#000; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    background: #000; 
+    display: block;
   }
 
   .game-label { 
-    width:125px; 
-    text-align:center; 
-    background:#1c223c; 
-    padding:6px 0; 
-    font-size:14px; 
-    font-weight:600; 
-    color:#fff; 
-    border-radius:0 0 12px 12px; 
+    width: 125px; 
+    text-align: center; 
+    background: #1c223c; 
+    padding: 6px 0; 
+    font-size: 14px; 
+    font-weight: 600; 
+    border-radius: 0 0 12px 12px; 
   }
 </style>
 </head>
 
 <body>
-  
-  <a href="home.html" class="site-logo">
-  <img src="https://i.imgur.com/QXhoS1t.png" alt="Homework Planet Home">
-</a>
 
-<!-- 🔗 CLICKABLE LOGO -->
+<!-- 🔗 CLICKABLE HOME LOGO -->
 <a href="home.html" class="site-logo">
   <img src="https://i.imgur.com/QXhoS1t.png" alt="Homework Planet Home">
 </a>
