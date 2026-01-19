@@ -51,6 +51,40 @@
     transform: scale(1.05);
   }
 
+  /* ☕ KO-FI BUTTON (TOP CENTER) */
+  .kofi-btn {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #1c223c;
+    padding: 8px 14px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .kofi-btn:hover {
+    transform: translateX(-50%) scale(1.06);
+    box-shadow: 0 10px 26px rgba(120,160,255,0.5);
+  }
+
+  .kofi-btn img {
+    height: 26px;
+  }
+
+  .kofi-btn span {
+    font-weight: 700;
+    font-size: 14px;
+    color: #ff5e5e;
+    white-space: nowrap;
+  }
+
   .content { 
     padding: 100px 24px 40px; 
     max-width: 1200px; 
@@ -105,8 +139,15 @@
 
 <body>
 
+<!-- 🏠 HOME LOGO -->
 <a href="home.html" class="site-logo">
   <img src="https://i.imgur.com/QXhoS1t.png" alt="Homework Planet Home">
+</a>
+
+<!-- ☕ KO-FI SUPPORT BUTTON -->
+<a href="https://ko-fi.com/homeworkplanet" target="_blank" class="kofi-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Ko-fi_Logo.png" alt="Ko-fi">
+  <span>Support Homework Planet</span>
 </a>
 
 <div class="content">
