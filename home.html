@@ -172,6 +172,32 @@ body {
   background: #28304f; /* slightly lighter on hover */
 }
   
+   /* Hide description by default */
+.game-desc {
+  display: none;
+  font-size: 10px;       /* small text */
+  text-align: center;
+  color: #ccc;
+  margin-top: 2px;
+  max-width: 100px;      /* same width as card */
+  line-height: 1.2em;
+}
+
+/* Show description when hovering the container */
+.game-card-container:hover .game-desc {
+  display: block;
+}
+  
+  .game-desc {
+  display: block;        /* keep block for transition */
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.game-card-container:hover .game-desc {
+  opacity: 1;
+}
+  
 </style>
 </head>
 
