@@ -620,5 +620,26 @@ body {
   </div>
 </div>
 
+   <script>
+function searchGames() {
+  const input = document
+    .getElementById("gameSearch")
+    .value
+    .toLowerCase();
+
+  const games = document.querySelectorAll(".game-card-container");
+
+  games.forEach(game => {
+    const text = game.innerText.toLowerCase();
+
+    if (text.includes(input)) {
+      game.style.display = "";
+    } else {
+      game.style.display = "none";
+    }
+  });
+}
+</script>
+
 </body>
 </html>
