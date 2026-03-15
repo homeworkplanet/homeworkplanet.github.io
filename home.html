@@ -1,332 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://homeworkplanet.github.io/home.html">
+  <title>Homework Planet - Best Browser Online Homework Games for Striving Students</title>
+  <link rel="icon" href="https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png" type="image/png">
 
-<title>Homework Planet - Best Browser Online Homework Games for Striving Students</title>
+  <script>
+  (function () {
+    document.addEventListener("DOMContentLoaded", function () {
+      if (sessionStorage.getItem("adblockChecked")) return;
+      sessionStorage.setItem("adblockChecked", "1");
+      const bait = document.createElement("div");
+      bait.className = "adsbox ad-banner ad-placement";
+      bait.style.position = "absolute";
+      bait.style.left = "-999px";
+      document.body.appendChild(bait);
+      setTimeout(function () {
+        if (bait.offsetHeight === 0) {
+          document.getElementById("adblock-overlay").style.display = "flex";
+        }
+        bait.remove();
+      }, 200);
+    });
+  })();
+  </script>
 
-<link rel="icon" href="https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png" type="image/png">
-
-<script src="https://3nbf4.com/act/files/tag.min.js?z=10489665" data-cfasync="false" async></script>
-  
-<script>
-(function (s) {
-  s.dataset.zone = '10545498';
-  s.src = 'https://gizokraijaw.net/vignette.min.js';
-})(
-  [document.documentElement, document.body]
-    .filter(Boolean)
-    .pop()
-    .appendChild(document.createElement('script'))
-);
-</script>
-
-<script>
-(function(s){
-  s.dataset.zone='10488335';
-  s.src='https://nap5k.com/tag.min.js';
-})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
-</script>
-
-<script>
-(function () {
-  document.addEventListener("DOMContentLoaded", function () {
-    if (sessionStorage.getItem("adblockChecked")) return;
-    sessionStorage.setItem("adblockChecked", "1");
-
-    const bait = document.createElement("div");
-    bait.className = "adsbox ad-banner ad-placement";
-    bait.style.position = "absolute";
-    bait.style.left = "-999px";
-    document.body.appendChild(bait);
-
-    setTimeout(function () {
-      if (bait.offsetHeight === 0) {
-        document.getElementById("adblock-overlay").style.display = "flex";
-      }
-      bait.remove();
-    }, 200);
-  });
-})();
-</script>
-
-<style>
-body {
-  margin: 0;
-  font-family: system-ui, Arial, sans-serif;
-  color: #fff;
-
-  background:
-    linear-gradient(
-      rgba(15,18,32,0.88),
-      rgba(15,18,32,0.88)
-    ),
-    url("https://i.pinimg.com/originals/7c/83/af/7c83afe4915fc72564941ab32ff1e37d.gif");
-
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-.site-logo {
-  position: fixed;
-  top: 12px;
-  left: 16px;
-  z-index: 9999;
-}
-
-.site-logo img {
-  height: 72px;
-}
-
-.kofi-btn {
-  position: fixed;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  background: #1c223c;
-  padding: 8px 14px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-
-.kofi-btn img {
-  height: 26px;
-}
-
-.kofi-btn span {
-  font-weight: 700;
-  font-size: 14px;
-  color: #ff5e5e;
-}
-
-.content {
-  padding: 100px 24px 40px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 14px;
-  justify-items: center;
-}
-
-.game-card {
-  width: 100px;
-  height: 100px;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-}
-
-.game-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: #000;
-}
-
-.game-label {
-  width: 100px;
-  text-align: center;
-  background: #1c223c;
-  padding: 6px 0;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 0 0 12px 12px;
-}
-
-#adblock-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 18, 32, 0.96); /* matches your body gradient opacity/darkness */
-  z-index: 100000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(6px); /* subtle modern blur for immersion */
-}
-
-#adblock-popup {
-  background: #1c223c; /* same as game labels, search bar, buttons */
-  border-radius: 14px; /* consistent radius everywhere */
-  padding: 32px 28px;
-  max-width: 420px;
-  text-align: center;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
-              0 0 20px rgba(79, 124, 255, 0.25); /* subtle blue glow like your hovers */
-  border: 1px solid rgba(79, 124, 255, 0.18); /* faint blue border accent */
-}
-
-#adblock-popup h2 {
-  margin: 0 0 16px;
-  font-size: 24px;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(79, 124, 255, 0.4); /* soft glow */
-}
-
-#adblock-popup p {
-  margin: 0 0 24px;
-  font-size: 16px;
-  color: #ccc; /* matches your game-desc color */
-  line-height: 1.5;
-}
-
-#adblock-popup button {
-  background: #28304f; /* slightly darker variant of #1c223c for button base */
-  color: #fff;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 14px 32px;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-#adblock-popup button:hover {
-  background: #4f7cff; /* your accent blue from search hover */
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(79, 124, 255, 0.5);
-}
-
-#adblock-popup button:active {
-  transform: translateY(0);
-}
-  
-  .all-games-btn {
-  display: inline-block;
-  background: #1c223c; /* same as your game labels */
-  color: #fff;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 10px 18px;
-  border-radius: 14px;
-  margin: 0 auto 20px;
-  text-align: center;
-  transition: background 0.2s;
-}
-
-.all-games-btn:hover {
-  background: #28304f; /* slightly lighter on hover */
-}
-  
-   /* Hide description by default */
-.game-desc {
-  display: none;
-  font-size: 10px;       /* small text */
-  text-align: center;
-  color: #ccc;
-  margin-top: 2px;
-  max-width: 100px;      /* same width as card */
-  line-height: 1.2em;
-}
-
-/* Show description when hovering the container */
-.game-card-container:hover .game-desc {
-  display: block;
-}
-  
-  .game-desc {
-  display: block;        /* keep block for transition */
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.game-card-container:hover .game-desc {
-  opacity: 1;
-}
-
-   .search-bar-fixed {
-  position: fixed;
-  top: 18px;
-  right: 20px;
-
-  width: 220px;
-  padding: 10px 14px;
-
-  border-radius: 14px;
-  border: 1px solid transparent;
-
-  background: #1c223c;
-  color: white;
-  font-size: 13px;
-
-  outline: none;
-  z-index: 9999;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.15s ease;
-}
-
-/* hover animation */
-.search-bar-fixed:hover {
-  border-color: #4f7cff;
-  box-shadow: 0 0 10px rgba(79, 124, 255, 0.35);
-  transform: translateY(-1px);
-}
-
-/* when typing */
-.search-bar-fixed:focus {
-  border-color: #4f7cff;
-  box-shadow: 0 0 14px rgba(79, 124, 255, 0.55);
-}
-
-.search-bar-fixed::placeholder {
-  color: #9aa0c4;
-}
-
-  .socials-footer {
-  margin-top: 40px;           
-  display: flex;              
-  justify-content: center;    
-  gap: 20px;                  
-  padding-bottom: 30px;       
-}
-
-.socials-footer a img {
-  width: 25px;                
-  height: 25px;
-  transition: transform 0.2s, filter 0.2s;
-}
-
-.socials-footer a:hover img {
-  transform: scale(1.3);
-  filter: drop-shadow(0 0 8px #4f7cff);
-}
-  
-</style>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, Arial, sans-serif;
+      color: #fff;
+      background:
+        linear-gradient(
+          rgba(15,18,32,0.88),
+          rgba(15,18,32,0.88)
+        ),
+        url("https://i.pinimg.com/originals/7c/83/af/7c83afe4915fc72564941ab32ff1e37d.gif");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .site-logo {
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      z-index: 9999;
+    }
+    .site-logo img {
+      height: 72px;
+    }
+    .kofi-btn {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      background: #1c223c;
+      padding: 8px 14px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .kofi-btn img {
+      height: 26px;
+    }
+    .kofi-btn span {
+      font-weight: 700;
+      font-size: 14px;
+      color: #ff5e5e;
+    }
+    .content {
+      padding: 100px 24px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 14px;
+      justify-items: center;
+    }
+    .game-card {
+      width: 100px;
+      height: 100px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+    .game-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+    .game-label {
+      width: 100px;
+      text-align: center;
+      background: #1c223c;
+      padding: 6px 0;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 0 0 12px 12px;
+    }
+    #adblock-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 18, 32, 0.96);
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+    #adblock-popup {
+      background: #1c223c;
+      border-radius: 14px;
+      padding: 32px 28px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+                  0 0 20px rgba(79, 124, 255, 0.25);
+      border: 1px solid rgba(79, 124, 255, 0.18);
+    }
+    #adblock-popup h2 {
+      margin: 0 0 16px;
+      font-size: 24px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(79, 124, 255, 0.4);
+    }
+    #adblock-popup p {
+      margin: 0 0 24px;
+      font-size: 16px;
+      color: #ccc;
+      line-height: 1.5;
+    }
+    #adblock-popup button {
+      background: #28304f;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    #adblock-popup button:hover {
+      background: #4f7cff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79, 124, 255, 0.5);
+    }
+    #adblock-popup button:active {
+      transform: translateY(0);
+    }
+    .all-games-btn {
+      display: inline-block;
+      background: #1c223c;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 14px;
+      margin: 0 auto 20px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .all-games-btn:hover {
+      background: #28304f;
+    }
+    .game-desc {
+      display: block;
+      opacity: 0;
+      font-size: 10px;
+      text-align: center;
+      color: #ccc;
+      margin-top: 2px;
+      max-width: 100px;
+      line-height: 1.2em;
+      transition: opacity 0.25s ease;
+    }
+    .game-card-container:hover .game-desc {
+      opacity: 1;
+    }
+    .search-bar-fixed {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      width: 220px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: #1c223c;
+      color: white;
+      font-size: 13px;
+      outline: none;
+      z-index: 9999;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+    .search-bar-fixed:hover {
+      border-color: #4f7cff;
+      box-shadow: 0 0 10px rgba(79, 124, 255, 0.35);
+      transform: translateY(-1px);
+    }
+    .search-bar-fixed:focus {
+      border-color: #4f7cff;
+      box-shadow: 0 0 14px rgba(79, 124, 255, 0.55);
+    }
+    .search-bar-fixed::placeholder {
+      color: #9aa0c4;
+    }
+    .socials-footer {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding-bottom: 30px;
+    }
+    .socials-footer a img {
+      width: 25px;
+      height: 25px;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .socials-footer a:hover img {
+      transform: scale(1.3);
+      filter: drop-shadow(0 0 8px #4f7cff);
+    }
+  </style>
 </head>
-
 <body>
+  <input
+    type="text"
+    id="gameSearch"
+    placeholder="Search games…"
+    onkeyup="searchGames()"
+    class="search-bar-fixed"
+  />
 
-   <input 
-  type="text"
-  id="gameSearch"
-  placeholder="Search games…"
-  onkeyup="searchGames()"
-  class="search-bar-fixed"
-/>
-
-<div id="adblock-overlay">
-  <div id="adblock-popup">
-    <h2>Please support Homework Planet ❤️</h2>
-    <p>Hey Homework Planet user! You're not obligated too, but disabling your adblocker would greatly support the website. Kindly disable your adblocker to help our site!</p>
-    <button onclick="location.reload()">Continue</button>
+  <div id="adblock-overlay">
+    <div id="adblock-popup">
+      <h2>Please support Homework Planet ❤️</h2>
+      <p>Hey Homework Planet user! You're not obligated to, but disabling your adblocker would greatly help keep the site free and running. Thanks for understanding!</p>
+      <button id="continue-btn">I disabled AdBlock — Continue</button>
+    </div>
   </div>
-</div>
 
 <a href="home.html" class="site-logo">
   <img src="https://i.imgur.com/QXhoS1t.png">
@@ -671,26 +592,49 @@ body {
   </div>
 </div>
 
-   <script>
-function searchGames() {
-  const input = document
-    .getElementById("gameSearch")
-    .value
-    .toLowerCase();
-
-  const games = document.querySelectorAll(".game-card-container");
-
-  games.forEach(game => {
-    const text = game.innerText.toLowerCase();
-
-    if (text.includes(input)) {
-      game.style.display = "";
-    } else {
-      game.style.display = "none";
+  <script>
+    function searchGames() {
+      const input = document.getElementById("gameSearch").value.toLowerCase();
+      const games = document.querySelectorAll(".game-card-container");
+      games.forEach(game => {
+        const text = game.innerText.toLowerCase();
+        game.style.display = text.includes(input) ? "" : "none";
+      });
     }
-  });
-}
-</script>
 
+    // ── Dynamic ad loading ────────────────────────────────────────────────
+    function loadAds() {
+      // Ad script 1
+      const script1 = document.createElement('script');
+      script1.src = 'https://3nbf4.com/act/files/tag.min.js?z=10489665';
+      script1.setAttribute('data-cfasync', 'false');
+      script1.async = true;
+      document.head.appendChild(script1);
+
+      // Ad script 2 (vignette)
+      (function(s) {
+        s.dataset.zone = '10545498';
+        s.src = 'https://gizokraijaw.net/vignette.min.js';
+      })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+
+      // Ad script 3
+      (function(s) {
+        s.dataset.zone = '10488335';
+        s.src = 'https://nap5k.com/tag.min.js';
+      })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('continue-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          loadAds();  // Start loading ads now
+          document.getElementById('adblock-overlay').style.display = 'none';
+          // If you prefer a reload after ads begin loading, uncomment next line:
+          // setTimeout(() => location.reload(), 800);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
