@@ -1,132 +1,374 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Main / structural pages -->
+  <url>
+    <loc>https://homeworkplanet.github.io/index.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
   <url>
     <loc>https://homeworkplanet.github.io/home.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://homeworkplanet.github.io/all-games.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
+  <!-- Individual game pages (alphabetical order for cleanliness) -->
   <url>
-    <loc>https://homeworkplanet.github.io/slope.html</loc>
+    <loc>https://homeworkplanet.github.io/baldi.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/buzzy.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/minecraft.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/tag.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/xbox.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/kirka.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/retrobowl.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/drivemad.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/smashkarts.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/ragdollarchers.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/geometrydash.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/rivals.html</loc>
-  </url>
-
   <url>
     <loc>https://homeworkplanet.github.io/basketballstars.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/subwaysurfers.html</loc>
+    <loc>https://homeworkplanet.github.io/bitlife.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/fnaf.html</loc>
+    <loc>https://homeworkplanet.github.io/brainrotclicker.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/fnaf2.html</loc>
+    <loc>https://homeworkplanet.github.io/buckshot.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/fnaf3.html</loc>
+    <loc>https://homeworkplanet.github.io/buzzy.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/fnaf4.html</loc>
+    <loc>https://homeworkplanet.github.io/chatgpt.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/undeadcorridor.html</loc>
+    <loc>https://homeworkplanet.github.io/deeradventure.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/ragdollplayground.html</loc>
-  </url>
-
-  <url>
-    <loc>https://homeworkplanet.github.io/wheeliemaster.html</loc>
-  </url>
-
   <url>
     <loc>https://homeworkplanet.github.io/driftboss.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/slitherio.html</loc>
+    <loc>https://homeworkplanet.github.io/drivemad.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/rocketleague.html</loc>
+    <loc>https://homeworkplanet.github.io/escape2.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/orbitkick.html</loc>
+    <loc>https://homeworkplanet.github.io/escaperoad.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/leveldevil.html</loc>
+    <loc>https://homeworkplanet.github.io/fireboy.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
   <url>
-    <loc>https://homeworkplanet.github.io/stealabrainrot.html</loc>
+    <loc>https://homeworkplanet.github.io/fnaf.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://homeworkplanet.github.io/fnaf2.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/fnaf3.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/fnaf4.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/fnafsb.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/fnafucn.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/fnf.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/frontwars.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/geometrydash.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/googlefe23c3d7c798c17f.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/hazards.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://homeworkplanet.github.io/hollowknight.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://homeworkplanet.github.io/kickthebuddy.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/kirka.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/krunker.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/leveldevil.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/madalin.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/minecraft.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/mountainbike.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/orbitkick.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/poppyplaytime.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://homeworkplanet.github.io/pvz.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://homeworkplanet.github.io/ragdollarchers.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/ragdollplayground.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/retrobowl.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/rivals.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/roblox.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/rocketleague.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/rooftop.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/run3.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/slitherio.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/slope.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/smashkarts.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/spotify.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/stealabrainrot.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/stickman.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/subwaysurfers.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/survivalrace.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/tag.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/td3.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/timeshooter3.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/undeadcorridor.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://homeworkplanet.github.io/undertale.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/wheeliemaster.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://homeworkplanet.github.io/xbox.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
