@@ -806,26 +806,49 @@
   </div>
 </div>
 
-  <script>
-function searchGames() {
-  const input = document
-    .getElementById("gameSearch")
-    .value
-    .toLowerCase();
-
-  const games = document.querySelectorAll(".game-card-container");
-
-  games.forEach(game => {
-    const text = game.innerText.toLowerCase();
-
-    if (text.includes(input)) {
-      game.style.display = "";
-    } else {
-      game.style.display = "none";
+    <script>
+    function searchGames() {
+      const input = document.getElementById("gameSearch").value.toLowerCase();
+      const games = document.querySelectorAll(".game-card-container");
+      games.forEach(game => {
+        const text = game.innerText.toLowerCase();
+        game.style.display = text.includes(input) ? "" : "none";
+      });
     }
-  });
-}
-</script>
 
+    // ── Dynamic ad loading ────────────────────────────────────────────────
+    function loadAds() {
+      // Ad script 1
+      const script1 = document.createElement('script');
+      script1.src = 'https://3nbf4.com/act/files/tag.min.js?z=10489665';
+      script1.setAttribute('data-cfasync', 'false');
+      script1.async = true;
+      document.head.appendChild(script1);
+
+      // Ad script 2 (vignette)
+      (function(s) {
+        s.dataset.zone = '10545498';
+        s.src = 'https://gizokraijaw.net/vignette.min.js';
+      })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+
+      // Ad script 3
+      (function(s) {
+        s.dataset.zone = '10488335';
+        s.src = 'https://nap5k.com/tag.min.js';
+      })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('continue-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          loadAds();  // Start loading ads now
+          document.getElementById('adblock-overlay').style.display = 'none';
+          // If you prefer a reload after ads begin loading, uncomment next line:
+          // setTimeout(() => location.reload(), 800);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
