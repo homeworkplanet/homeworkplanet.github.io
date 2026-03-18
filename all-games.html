@@ -305,6 +305,9 @@
       <b>all of the games and tools our website offers. Click <a href="https://otieu.com/4/10518987">here</a> to check out a game from one of our sponsors!</b>
     </p>
 
+    <!-- SINGLE SEARCH RESULTS GRID (exactly like the old Games grid – rows of ~10 cards) -->
+    <div id="search-results-grid" class="games-grid" style="display: none;"></div>
+
     <!-- ARCADE / ENDLESS RUNNER -->
     <div id="arcade" class="category-section">
       <h2 class="category-header">Arcade / Endless Runner</h2>
@@ -569,19 +572,44 @@
 
   <script>
     function searchGames() {
-      const input = document.getElementById("gameSearch").value.toLowerCase();
-      const games = document.querySelectorAll(".game-card-container");
-      games.forEach(game => {
-        const text = game.innerText.toLowerCase();
-        game.style.display = text.includes(input) ? "" : "none";
+      const input = document.getElementById("gameSearch").value.toLowerCase().trim();
+      const allCards = document.querySelectorAll(".game-card-container");
+      const isSearching = input.length > 0;
+
+      // Hide/show individual cards
+      allCards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "" : "none";
       });
 
-      // NEW: Hide ALL category headers while searching
-      const headers = document.querySelectorAll('.category-header');
-      const isSearching = input.length > 0;
-      headers.forEach(header => {
+      // Hide all category headers when searching
+      document.querySelectorAll('.category-header').forEach(header => {
         header.style.display = isSearching ? 'none' : '';
       });
+
+      const searchGrid = document.getElementById("search-results-grid");
+      const categories = document.querySelectorAll(".category-section");
+
+      if (isSearching) {
+        // Hide every category section
+        categories.forEach(cat => cat.style.display = "none");
+
+        // Show the single flat search grid
+        searchGrid.style.display = "grid";
+        searchGrid.innerHTML = "";
+
+        // Add only the matching cards (cloned) into one clean grid
+        allCards.forEach(card => {
+          if (card.style.display !== "none") {
+            const clone = card.cloneNode(true);
+            searchGrid.appendChild(clone);
+          }
+        });
+      } else {
+        // Restore normal view
+        categories.forEach(cat => cat.style.display = "");
+        searchGrid.style.display = "none";
+      }
     }
 
     function scrollToCategory() {
