@@ -173,7 +173,7 @@
     .all-games-btn:hover {
       background: #28304f;
     }
-    .game-desc {
+   .game-desc {
       display: block;
       opacity: 0;
       font-size: 10px;
@@ -184,18 +184,25 @@
       line-height: 1.2em;
       transition: opacity 0.25s ease;
     }
+
+    /* Correctly closed the hover rule for game-desc */
     .game-card-container:hover .game-desc {
       opacity: 1;
-      .game-card-container a {
-  text-decoration: none; /* Removes the underline */
-  color: white;          /* Sets the text color to white */
-}
+    }
 
-/* Optional: Keep it white even after the link is clicked */
-.game-card-container a:visited {
-  color: white;
-}
+    /* Now add the link styles separately */
+    .game-card-container a {
+      text-decoration: none; /* Removes the underline */
+      color: white;          /* Sets the text color to white */
+    }
+
+    /* Keep it white even after the link is clicked */
+    .game-card-container a:visited {
+      color: white;
+    }
+
     .search-bar-fixed {
+      /* Your existing search bar styles continue here... */
       position: fixed;
       top: 18px;
       right: 20px;
