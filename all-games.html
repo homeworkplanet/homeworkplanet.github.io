@@ -262,6 +262,66 @@
       color: #fff;
       text-shadow: 0 2px 8px rgba(79, 124, 255, 0.4);
     }
+
+    /* ── Favorites ──────────────────────────────────────────────── */
+    .game-card-container {
+      position: relative;
+    }
+
+    .fav-star {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      font-size: 18px;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+      user-select: none;
+    }
+
+    .fav-star.favorited {
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffaa00;
+      transform: scale(1.15);
+    }
+
+    #view-favorites-btn {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-120px);
+      z-index: 9999;
+      background: #1c223c;
+      color: #ffd700;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 14px;
+      border: 1px solid #4f7cff44;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #view-favorites-btn:hover {
+      background: #28304f;
+      border-color: #ffd70066;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
+    }
+
+    #view-favorites-btn.active {
+      background: #4f7cff;
+      color: white;
+      border-color: #ffd700;
+    }
+
+    .games-grid.favorites-mode .game-card-container:not(.favorited) {
+      display: none !important;
+    }
+    
   </style>
 </head>
 <body>
@@ -288,6 +348,11 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Ko-fi_Logo.png">
   <span>Support Homework Planet</span>
 </a>
+
+<button id="view-favorites-btn">
+<span>★ Favorites</span>
+</button>
+  
 
 <div class="content">
 
