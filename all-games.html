@@ -263,7 +263,7 @@
       text-shadow: 0 2px 8px rgba(79, 124, 255, 0.4);
     }
 
-    /* ── Favorites ──────────────────────────────────────────────── */
+/* ── Favorites ──────────────────────────────────────────────── */
     .game-card-container {
       position: relative;
     }
@@ -325,6 +325,7 @@
   </style>
 </head>
 <body>
+  
   <input
     type="text"
     id="gameSearch"
@@ -333,11 +334,18 @@
     class="search-bar-fixed"
   />
 
+  <button id="view-favorites-btn" onclick="toggleFavView()">
+    ⭐ Favorite Games
+  </button>
+
   <div id="adblock-overlay">
     <div id="adblock-popup">
       <h2>Please support Homework Planet ❤️</h2>
       <p>Hey Homework Planet user! You're not obligated to, but disabling your adblocker would greatly help keep the site free and running. Thanks for understanding!</p>
       <button id="continue-btn">Continue</button>
+    </div>
+  </div>
+      
     </div>
   </div>
 <a href="home.html" class="site-logo">
@@ -1141,6 +1149,62 @@
 
   </div>
 </div>
+
+  <script>
+    let showingFavoritesOnly = false;
+
+    // --- FAVORITES LOGIC ---
+    // Load favorites on startup
+    document.addEventListener('DOMContentLoaded', () => {
+      const stars = document.querySelectorAll('.fav-star');
+      let favorites = JSON.parse(localStorage.getItem('favGames')) || [];
+      
+      stars.forEach(star => {
+        if (favorites.includes(star.dataset.game)) {
+          star.classList.add('favorited');
+          star.innerText = '★'; // Filled star
+        }
+      });
+    });
+
+    function toggleFav(event, element) {
+      event.preventDefault(); // Stops the link from taking you to the game page
+      event.stopPropagation();
+      
+      const gameName = element.dataset.game;
+      let favorites = JSON.parse(localStorage.getItem('favGames')) || [];
+      
+      if (favorites.includes(gameName)) {
+        // Remove from favorites
+        favorites = favorites.filter(name => name !== gameName);
+        element.classList.remove('favorited');
+        element.innerText = '☆'; // Empty star
+      } else {
+        // Add to favorites
+        favorites.push(gameName);
+        element.classList.add('favorited');
+        element.innerText = '★'; // Filled star
+      }
+      
+      localStorage.setItem('favGames', JSON.stringify(favorites));
+
+      // Auto-update if user is currently viewing favorites
+      if (showingFavoritesOnly) {
+         searchGames();
+      }
+    }
+
+    function toggleFavView() {
+      showingFavoritesOnly = !showingFavoritesOnly;
+      const btn = document.getElementById('favBtn');
+      
+      if (showingFavoritesOnly) {
+        btn.innerText = "Show All Games";
+      } else {
+        btn.innerText = "Favorite Games";
+      }
+      searchGames(); // Refresh the list
+    }
 
     <script>
     function searchGames() {
