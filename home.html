@@ -108,14 +108,81 @@
       background: #000;
     }
     .game-label {
-      width: 100px;
-      text-align: center;
+      width: 80px; 
       background: #1c223c;
-      padding: 6px 0;
-      font-size: 12px;
+      padding: 12px 8px; 
+      font-size: 10px;
       font-weight: 600;
       border-radius: 0 0 12px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
     }
+    
+    .game-title {
+      flex: 1;
+      white-space: normal; /* Fixes text cutting off */
+      word-wrap: break-word; 
+      line-height: 1.2; 
+    }
+
+    /* Favorites Feature Styles */
+    .game-card-container {
+      position: relative;
+    }
+
+    .fav-star {
+      font-size: 19px;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .fav-star.favorited {
+      color: #ffd700;
+      text-shadow: 0 0 10px #ffaa00;
+      transform: scale(1.2);
+    }
+
+    #view-favorites-btn {
+      position: fixed;
+      top: 14px;
+      left: 27%;
+      transform: translateX(-120px);
+      z-index: 9999;
+      background: #1c223c;
+      color: #ffd700;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 14px;
+      border: 1px solid #4f7cff44;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #view-favorites-btn:hover {
+      background: #28304f;
+      border-color: #ffd70066;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
+    }
+
+    #view-favorites-btn.active {
+      background: #4f7cff;
+      color: white;
+      border-color: #ffd700;
+    }
+
+    .games-grid.favorites-mode .game-card-container:not(.favorited) {
+      display: none !important;
+    }
+
     #adblock-overlay {
       position: fixed;
       inset: 0;
@@ -273,6 +340,11 @@
       <button id="continue-btn">Continue</button>
     </div>
   </div>
+
+  <button id="view-favorites-btn">
+  <span>⭐</span>
+  <span>Favorites</span>
+</button>
 
 <a href="home.html" class="site-logo">
   <img src="https://i.imgur.com/QXhoS1t.png">
@@ -655,10 +727,78 @@
         btn.addEventListener('click', () => {
           loadAds();  // Start loading ads now
           document.getElementById('adblock-overlay').style.display = 'none';
-          // If you prefer a reload after ads begin loading, uncomment next line:
-          // setTimeout(() => location.reload(), 800);
         });
       }
+
+      /* ====================== FAVORITES FEATURE ====================== */
+      // 1. Turn every .game-label into flex with title + star
+      document.querySelectorAll('.game-label').forEach(label => {
+        if (label.querySelector('.fav-star')) return;
+        const titleText = label.textContent.trim();
+        label.innerHTML = `
+          <span class="game-title">${titleText}</span>
+          <span class="fav-star">☆</span>
+        `;
+      });
+
+      // 2. Add click listeners to stars
+      document.querySelectorAll('.fav-star').forEach(star => {
+        star.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+
+          const container = this.closest('.game-card-container');
+          const titleEl = container.querySelector('.game-title');
+          const gameName = titleEl ? titleEl.textContent.trim() : '';
+
+          // This exact same key keeps it synced with all-games.html
+          let favorites = JSON.parse(localStorage.getItem('homeworkplanet-favorites') || '[]');
+
+          if (container.classList.contains('favorited')) {
+            // Remove
+            favorites = favorites.filter(name => name !== gameName);
+            container.classList.remove('favorited');
+            this.classList.remove('favorited');
+            this.textContent = '☆';
+          } else {
+            // Add
+            if (!favorites.includes(gameName)) favorites.push(gameName);
+            container.classList.add('favorited');
+            this.classList.add('favorited');
+            this.textContent = '★';
+          }
+
+          localStorage.setItem('homeworkplanet-favorites', JSON.stringify([...new Set(favorites)]));
+        });
+      });
+
+      // 3. Restore saved favorites on load
+      const savedFavorites = JSON.parse(localStorage.getItem('homeworkplanet-favorites') || '[]');
+      document.querySelectorAll('.game-card-container').forEach(container => {
+        const titleEl = container.querySelector('.game-title');
+        if (!titleEl) return;
+        const gameName = titleEl.textContent.trim();
+        if (savedFavorites.includes(gameName)) {
+          container.classList.add('favorited');
+          const star = container.querySelector('.fav-star');
+          if (star) {
+            star.classList.add('favorited');
+            star.textContent = '★';
+          }
+        }
+      });
+
+      // 4. Favorites button toggle
+      const favoritesBtn = document.getElementById('view-favorites-btn');
+      if (favoritesBtn) {
+        favoritesBtn.addEventListener('click', () => {
+          const isActive = favoritesBtn.classList.toggle('active');
+          document.querySelectorAll('.games-grid').forEach(grid => {
+            grid.classList.toggle('favorites-mode', isActive);
+          });
+        });
+      }
+      /* ====================== END FAVORITES ====================== */
     });
   </script>
 </body>
