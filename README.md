@@ -43,7 +43,7 @@ Whether you’re dodging class, killing time in study hall, or just need a menta
 - **Geometry Dash** — Precision platforming at its finest  
 - **Subway Surfers** — Run, jump, grind  
 - **Five Nights at Freddy’s** (full series)
-- **ChatGPT, Spotify Premium, Web Proxy
+- **ChatGPT, Spotify Premium, Web Proxy**
 - **Drive Mad** • **Rooftop Snipers** • **Madalin Stunt Cars 2**  
 - **Roblox** • **Minecraft** • **Krunker.io** • **Bloxd.io**
 
