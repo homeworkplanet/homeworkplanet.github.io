@@ -1,37 +1,75 @@
-# Homework Planet
+<div align="center">
 
-Homework Planet is a simple browser-based game site made for when you’re bored in class, at home, or anywhere else. No downloads, no accounts, no clutter — just click and play.
+![Homework Planet Logo](https://i.imgur.com/QXhoS1t.png)
 
-The site is intentionally lightweight so it loads fast and works on most school networks.
+# **HOMEWORK PLANET** 🚀
 
----
+**The Ultimate Unblocked Games Hub for Striving Students**
 
-## Games on the Site
+**Play epic browser games at school. Zero downloads. Zero blocks. Pure freedom.**
 
-- **Slope**  
-  A fast reflex game where you control a ball going down an endless track. It starts easy and ramps up quickly.
+[![Visit Site](https://img.shields.io/badge/PLAY%20NOW-00FF9D?style=for-the-badge&logo=playstation&logoColor=black)](https://homeworkplanet.github.io)
 
-- **Flappy Bird**  
-  The classic rage game. Tap to flap, don’t hit anything, and see how far you get.
-
-- **Minecraft Classic**  
-  The original browser version of Minecraft. Pure creative mode with no survival mechanics.
-
-- **Tag**  
-  A local multiplayer game where players chase each other on the same keyboard. One person is “it,” and you don’t want to be them when time runs out.
-
-Each game opens on its own page so it doesn’t break the layout or navigation.
+</div>
 
 ---
 
-## How the Site Works
+### 🔥 **Why Homework Planet is Different**
 
-The entire site is static HTML and CSS.  
-Each game is embedded using an iframe and runs directly in the browser.
+Tired of GoGuardian, Securly, and every other school filter killing your vibe?  
+**Homework Planet** is the **lightning-fast, school-proof** destination for unblocked games that actually work on Chromebooks and locked networks.
 
-There is no backend, no database, and no tracking.
+- **100% Browser-Based** — No downloads, no installs, no hassle  
+- **Unblockable by Design** — Works even when everything else is blocked  
+- **Instant Play** — Click and go. No login. No bullshit.  
+- **Massive Library** — Slope, Geometry Dash, Roblox, FNAF, Minecraft, and 60+ more bangers  
+- **Mobile + Desktop Ready** — Looks clean on anything  
+- **Zero Ads, Zero Malware** — We actually respect your time
+
+Whether you’re dodging class, killing time in study hall, or just need a mental break — **Homework Planet** has your back.
+
+### ✨ **Top Features**
+
+- **Live Search** — Find any game in seconds  
+- **Favorites System** — Star your go-to games  
+- **Beautiful Grid Layout** — Clean, modern, and fast  
+- **Modal Popups** — Games open instantly without leaving the page  
+- **Dark Aesthetic** — Built for late-night sessions  
+- **Constantly Updated** — New games added weekly  
+
+### 🎮 **Popular Games Right Now**
+
+- **Slope** — The king of endless runners  
+- **Geometry Dash** — Precision platforming at its finest  
+- **Subway Surfers** — Run, jump, grind  
+- **Five Nights at Freddy’s** (full series)
+- **ChatGPT, Spotify Premium, Web Proxy
+- **Drive Mad** • **Rooftop Snipers** • **Madalin Stunt Cars 2**  
+- **Roblox** • **Minecraft** • **Krunker.io** • **Bloxd.io**
+
+…and **90+ more** absolute bangers.
+
+### ❤️ **Support the Planet**
+
+Homework Planet stays **free forever** because of legends like you.
+
+- Disable your adblocker for a minute  
+- Drop a donation on [Ko-fi](https://ko-fi.com/homeworkplanet)  
+- Star this repo ⭐  
+- Share with your friends on TikTok / Discord
+
+Every bit helps keep the servers running and new games coming.
 
 ---
 
-## File Structure
+**Made with 🔥 for students who just want to play.**
 
+**Website:** [homeworkplanet.github.io](https://homeworkplanet.github.io)  
+**Discord / TikTok / Instagram:** @homeworkplanet
+
+---
+
+<div align="center">
+  <strong>Homework Planet — Where the real grind happens.</strong><br>
+  <em>School can wait. The games won’t.</em>
+</div>
