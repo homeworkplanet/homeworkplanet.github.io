@@ -1,1 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-11292QMYXH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-11292QMYXH');
+</script>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://homeworkplanet.github.io/home.html">
+  <title>Homework Planet - Best Browser Online Homework Games for Striving Students</title>
+  <link rel="icon" href="https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png" type="image/png">
+
+  <script>
+  (function () {
+    document.addEventListener("DOMContentLoaded", function () {
+      if (sessionStorage.getItem("adblockChecked")) return;
+      sessionStorage.setItem("adblockChecked", "1");
+      const bait = document.createElement("div");
+      bait.className = "adsbox ad-banner ad-placement";
+      bait.style.position = "absolute";
+      bait.style.left = "-999px";
+      document.body.appendChild(bait);
+      setTimeout(function () {
+        if (bait.offsetHeight === 0) {
+          document.getElementById("adblock-overlay").style.display = "flex";
+        }
+        bait.remove();
+      }, 200);
+    });
+  })();
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, Arial, sans-serif;
+      color: #fff;
+      background:
+        linear-gradient(
+          rgba(15,18,32,0.88),
+          rgba(15,18,32,0.88)
+        ),
+        url("https://wallpapers.com/images/hd/dark-blue-aesthetic-calm-lake-oprig3tpij9dxsic.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .site-logo {
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      z-index: 9999;
+    }
+    .site-logo img {
+      height: 72px;
+    }
+    .kofi-btn {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      background: #1c223c;
+      padding: 8px 14px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .kofi-btn img {
+      height: 26px;
+    }
+    .kofi-btn span {
+      font-weight: 700;
+      font-size: 14px;
+      color: #ff5e5e;
+    }
+    .content {
+      padding: 100px 24px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 14px;
+      justify-items: center;
+    }
+    .game-card {
+      width: 100px;
+      height: 100px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+    .game-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000;
+    }
+    .game-label {
+      width: 80px; /* ← unchanged width (no length extension) */
+      background: #1c223c;
+      padding: 12px 8px; /* ← taller height only, minimal side padding */
+      font-size: 10px;
+      font-weight: 600;
+      border-radius: 0 0 12px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .game-title {
+  flex: 1;
+  white-space: normal; /* Allows the text to wrap to the next line */
+  word-wrap: break-word; /* Prevents super long words from breaking the layout */
+  line-height: 1.2; /* Adds a little breathing room between lines */
+}
+    #adblock-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 18, 32, 0.96);
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+    #adblock-popup {
+      background: #1c223c;
+      border-radius: 14px;
+      padding: 32px 28px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+                  0 0 20px rgba(79, 124, 255, 0.25);
+      border: 1px solid rgba(79, 124, 255, 0.18);
+    }
+    #adblock-popup h2 {
+      margin: 0 0 16px;
+      font-size: 24px;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(79, 124, 255, 0.4);
+    }
+    #adblock-popup p {
+      margin: 0 0 24px;
+      font-size: 16px;
+      color: #ccc;
+      line-height: 1.5;
+    }
+    #adblock-popup button {
+      background: #28304f;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    #adblock-popup button:hover {
+      background: #4f7cff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(79, 124, 255, 0.5);
+    }
+    #adblock-popup button:active {
+      transform: translateY(0);
+    }
+    .game-desc {
+      display: block;
+      opacity: 0;
+      font-size: 10px;
+      text-align: center;
+      color: #ccc;
+      margin-top: 2px;
+      max-width: 100px;
+      line-height: 1.2em;
+      transition: opacity 0.25s ease;
+    }
+    .game-card-container:hover .game-desc {
+      opacity: 1;
+    }
+    .game-card-container a {
+      text-decoration: none;
+      color: white;
+    }
+    .game-card-container a:visited {
+      color: white;
+    }
+    .search-bar-fixed {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      width: 220px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: #1c223c;
+      color: white;
+      font-size: 13px;
+      outline: none;
+      z-index: 9999;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+    }
+    .search-bar-fixed:hover {
+      border-color: #4f7cff;
+      box-shadow: 0 0 10px rgba(79, 124, 255, 0.35);
+      transform: translateY(-1px);
+    }
+    .search-bar-fixed:focus {
+      border-color: #4f7cff;
+      box-shadow: 0 0 14px rgba(79, 124, 255, 0.55);
+    }
+    .search-bar-fixed::placeholder {
+      color: #9aa0c4;
+    }
+    .socials-footer {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding-bottom: 30px;
+    }
+    .socials-footer a img {
+      width: 25px;
+      height: 25px;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .socials-footer a:hover img {
+      transform: scale(1.3);
+      filter: drop-shadow(0 0 8px #4f7cff);
+    }
+
+    /* Category styling */
+    .category-section {
+      margin-bottom: 50px;
+    }
+    .category-header {
+      text-align: center;
+      margin: 30px 0 15px;
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(79, 124, 255, 0.4);
+    }
+
+    /* Favorites */
+    .game-card-container {
+      position: relative;
+    }
+
+    .fav-star {
+      font-size: 19px;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .fav-star.favorited {
+      color: #ffd700;
+      text-shadow: 0 0 10px #ffaa00;
+      transform: scale(1.2);
+    }
+
+    #view-favorites-btn {
+      position: fixed;
+      top: 14px;
+      left: 27%;
+      transform: translateX(-120px);
+      z-index: 9999;
+      background: #1c223c;
+      color: #ffd700;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 14px;
+      border: 1px solid #4f7cff44;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #view-favorites-btn:hover {
+      background: #28304f;
+      border-color: #ffd70066;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
+    }
+
+    #view-favorites-btn.active {
+      background: #4f7cff;
+      color: white;
+      border-color: #ffd700;
+    }
+
+    .games-grid.favorites-mode .game-card-container:not(.favorited) {
+      display: none !important;
+    }
+    
+  </style>
+  
+</head>
+<body>
+
+<div style="display: none;">
+<script>
+  atOptions = {
+    'key' : '69fabbaaeb7265118a19b1b3c0daeb4a',
+    'format' : 'iframe',
+    'height' : 300,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/69fabbaaeb7265118a19b1b3c0daeb4a/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : 'cedfa4bcd32915ec8bb77c05d0a71c7f',
+    'format' : 'iframe',
+    'height' : 60,
+    'width' : 468,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/cedfa4bcd32915ec8bb77c05d0a71c7f/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : '723161d618be2ad7b86fdba6a918c1b0',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/723161d618be2ad7b86fdba6a918c1b0/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : '4732dffd9c312c7ca2be94254e316f88',
+    'format' : 'iframe',
+    'height' : 600,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/4732dffd9c312c7ca2be94254e316f88/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : 'b5b85d61b9a052010732a076a5ad6e7c',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/b5b85d61b9a052010732a076a5ad6e7c/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : 'fab9999e2eb116da8531a1fd7aa81231',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/fab9999e2eb116da8531a1fd7aa81231/invoke.js"></script>
+</div>
+
+  
+  <input
+    type="text"
+    id="gameSearch"
+    placeholder="Search games…"
+    onkeyup="searchGames()"
+    class="search-bar-fixed"
+  />
+
+  <div id="adblock-overlay">
+    <div id="adblock-popup">
+      <h2>Please support Homework Planet ❤️</h2>
+      <p>Hey Homework Planet user! You're not obligated to, but disabling your adblocker would greatly help keep the site free and running. Thanks for understanding!</p>
+      <button id="continue-btn">Continue</button>
+    </div>
+  </div>
+<a href="home.html" class="site-logo">
+  <img src="https://i.imgur.com/QXhoS1t.png">
+</a>
+
+<a href="https://ko-fi.com/homeworkplanet" target="_blank" class="kofi-btn">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Ko-fi_Logo.png">
+  <span>Support Homework Planet</span>
+</a>
+
+<!-- FAVORITES BUTTON -->
+<button id="view-favorites-btn">
+  <span>⭐</span>
+  <span>Favorites</span>
+</button>
+
+<div class="content">
+
+<p class="home-seo">
+  Homework Planet offers <b>free unblocked browser games</b> playable online at school.
+  All games run in your browser, work on Chromebooks, and require no downloads. Below are
+  <b>all of the games and tools our website offers. Click <a href="https://otieu.com/4/10518987">here</a> to check out a game from one of our sponsors!</b>
+</p>
+  
+<!-- GAMES CATEGORY -->
+<div class="category-section">
+  <h2 class="category-header">Emulators</h2>
+  <div class="games-grid" id="games-grid">
+
+    
+    
+    
+  </div>
+</div>
+
+  <div class="socials-footer">
+  <a href="https://www.reddit.com/r/homeworkplanet/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111589.png" alt="Reddit">
+  </a>
+  <a href="https://www.instagram.com/homework.planet/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+  </a>
+  <a href="https://www.tiktok.com/@homeworkplanet" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046123.png" alt="TikTok">
+  </a>
+</div>
+
+  </div>
+</div>
+
+    <script>
+    function searchGames() {
+      const input = document.getElementById("gameSearch").value.toLowerCase();
+      const games = document.querySelectorAll(".game-card-container");
+      games.forEach(game => {
+        const text = game.innerText.toLowerCase();
+        game.style.display = text.includes(input) ? "" : "none";
+      });
+    }
+
+    // ── Dynamic ad loading ────────────────────────────────────────────────
+    function loadAds() {
+      const script1 = document.createElement('script');
+      script1.src = 'https://3nbf4.com/act/files/tag.min.js?z=10489665';
+      script1.setAttribute('data-cfasync', 'false');
+      script1.async = true;
+      document.head.appendChild(script1);
+
+      (function(s) {
+        s.dataset.zone = '10545498';
+        s.src = 'https://gizokraijaw.net/vignette.min.js';
+      })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+
+      (function(s) {
+        s.dataset.zone = '10488335';
+        s.src = 'https://nap5k.com/tag.min.js';
+      })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('continue-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          loadAds();
+          document.getElementById('adblock-overlay').style.display = 'none';
+        });
+      }
+
+      /* ====================== FAVORITES FEATURE (FIXED) ====================== */
+      // 1. Turn every .game-label into flex with title + star (height increased, width unchanged)
+      document.querySelectorAll('.game-label').forEach(label => {
+        if (label.querySelector('.fav-star')) return;
+        const titleText = label.textContent.trim();
+        label.innerHTML = `
+          <span class="game-title">${titleText}</span>
+          <span class="fav-star">☆</span>
+        `;
+      });
+
+      // 2. Add click listeners to stars (preventDefault + stopImmediatePropagation for reliability)
+      document.querySelectorAll('.fav-star').forEach(star => {
+        star.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+
+          const container = this.closest('.game-card-container');
+          const titleEl = container.querySelector('.game-title');
+          const gameName = titleEl ? titleEl.textContent.trim() : '';
+
+          let favorites = JSON.parse(localStorage.getItem('homeworkplanet-favorites') || '[]');
+
+          if (container.classList.contains('favorited')) {
+            // Remove
+            favorites = favorites.filter(name => name !== gameName);
+            container.classList.remove('favorited');
+            this.classList.remove('favorited');
+            this.textContent = '☆';
+          } else {
+            // Add
+            if (!favorites.includes(gameName)) favorites.push(gameName);
+            container.classList.add('favorited');
+            this.classList.add('favorited');
+            this.textContent = '★';
+          }
+
+          localStorage.setItem('homeworkplanet-favorites', JSON.stringify([...new Set(favorites)]));
+        });
+      });
+
+      // 3. Restore saved favorites on load
+      const savedFavorites = JSON.parse(localStorage.getItem('homeworkplanet-favorites') || '[]');
+      document.querySelectorAll('.game-card-container').forEach(container => {
+        const titleEl = container.querySelector('.game-title');
+        if (!titleEl) return;
+        const gameName = titleEl.textContent.trim();
+        if (savedFavorites.includes(gameName)) {
+          container.classList.add('favorited');
+          const star = container.querySelector('.fav-star');
+          if (star) {
+            star.classList.add('favorited');
+            star.textContent = '★';
+          }
+        }
+      });
+
+      // 4. Favorites button toggle
+      const favoritesBtn = document.getElementById('view-favorites-btn');
+      if (favoritesBtn) {
+        favoritesBtn.addEventListener('click', () => {
+          const isActive = favoritesBtn.classList.toggle('active');
+          document.querySelectorAll('.games-grid').forEach(grid => {
+            grid.classList.toggle('favorites-mode', isActive);
+          });
+        });
+      }
+      /* ====================== END FAVORITES ====================== */
+    });
+  </script>
+
+</body>
+</html>
