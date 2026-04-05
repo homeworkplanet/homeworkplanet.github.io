@@ -1,4 +1,3 @@
-// Panic Mode - Backslash (\)
 // Opens real Google Classroom + closes/hides Homework Planet tab
 
 document.addEventListener('keydown', function(e) {
