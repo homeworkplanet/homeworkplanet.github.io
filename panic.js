@@ -4,11 +4,12 @@
 let isPanicMode = false;
 let originalHTML = '';
 let originalTitle = '';
+let originalFavicon = '';
 
 document.addEventListener('keydown', function(e) {
     if (e.key === '\\') {
         e.preventDefault();
-        
+       
         if (isPanicMode) {
             restoreNormalSite();
         } else {
@@ -19,32 +20,32 @@ document.addEventListener('keydown', function(e) {
 
 function activatePanicMode() {
     isPanicMode = true;
-    
+   
     // Save original state
     originalHTML = document.body.innerHTML;
     originalTitle = document.title;
 
+    // Save current favicon URL
+    const currentLink = document.querySelector("link[rel*='icon']");
+    if (currentLink) originalFavicon = currentLink.href;
+
     // Open real Google Classroom in new tab
     window.open('https://classroom.google.com', '_blank');
 
-    // Change tab title to Google Docs
+    // Change to Google Docs mode
     document.title = "Google Docs";
 
-    // Change favicon to Google Docs
-    let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-    link.type = 'image/x-icon';
-    link.rel = 'shortcut icon';
-    link.href = 'https://upload.wikimedia.org/wikipedia/commons/e/ec/GDocs_Favicon_Recreation.png?_=20220509151807';
-    document.head.appendChild(link);
+    // Set Google Docs favicon
+    setFavicon('https://upload.wikimedia.org/wikipedia/commons/e/ec/GDocs_Favicon_Recreation.png?_=20220509151807');
 
-    // Show your Google Docs image as full screen
+    // Show your Google Docs image full screen
     document.body.innerHTML = `
         <img src="https://i.imgur.com/NSXIaAJ.png" 
-             style="width:100vw; height:100vh; object-fit:cover; display:block;" 
+             style="width:100vw; height:100vh; object-fit:contain; background:#f8f9fa; display:block;" 
              alt="Google Docs">
     `;
 
-    // Change URL in address bar
+    // Clean URL
     history.replaceState(null, '', 'about:blank');
 }
 
@@ -53,16 +54,25 @@ function restoreNormalSite() {
 
     isPanicMode = false;
 
-    // Restore original content
+    // Restore original content and title
     document.body.innerHTML = originalHTML;
-    document.title = originalTitle;
+    document.title = originalTitle || "Homework Planet";
 
-    // Restore original favicon (this is approximate - GitHub Pages favicon)
-    let link = document.querySelector("link[rel*='']");
-    if (link) {
-        link.href = 'https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png'; // You can put your original favicon URL here if you have one
-    }
+    // Restore your pencil favicon
+    setFavicon('https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png');
 
     // Reset URL
     history.replaceState(null, '', window.location.pathname);
+}
+
+// Helper to cleanly change favicon
+function setFavicon(url) {
+    // Remove all existing favicons first
+    document.querySelectorAll("link[rel*='icon']").forEach(link => link.remove());
+
+    const link = document.createElement('link');
+    link.rel = 'shortcut icon';
+    link.type = 'image/png';
+    link.href = url;
+    document.head.appendChild(link);
 }
