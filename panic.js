@@ -34,7 +34,7 @@ function activatePanicMode() {
     let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
     link.type = 'image/x-icon';
     link.rel = 'shortcut icon';
-    link.href = 'https://ssl.gstatic.com/docs/doclist/images/infinite_arrow_favicon_4.ico';
+    link.href = 'https://upload.wikimedia.org/wikipedia/commons/e/ec/GDocs_Favicon_Recreation.png?_=20220509151807';
     document.head.appendChild(link);
 
     // Show your Google Docs image as full screen
@@ -58,9 +58,9 @@ function restoreNormalSite() {
     document.title = originalTitle;
 
     // Restore original favicon (this is approximate - GitHub Pages favicon)
-    let link = document.querySelector("link[rel*='icon']");
+    let link = document.querySelector("link[rel*='']");
     if (link) {
-        link.href = ''; // You can put your original favicon URL here if you have one
+        link.href = 'https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png'; // You can put your original favicon URL here if you have one
     }
 
     // Reset URL
