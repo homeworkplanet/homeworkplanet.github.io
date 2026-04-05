@@ -310,6 +310,39 @@
     .games-grid.favorites-mode .game-card-container:not(.favorited) {
       display: none !important;
     }
+
+    #submit-game-btn {
+    position: fixed;
+    top: 14px;
+    left: 38%;                    /* Positioned between search bar and favorites */
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #1c223c;
+    color: #4f7cff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 14px;
+    border: 1px solid #4f7cff44;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  #submit-game-btn:hover {
+    background: #28304f;
+    border-color: #4f7cff;
+    box-shadow: 0 0 12px rgba(79, 124, 255, 0.35);
+    color: #fff;
+    transform: translateX(-50%) translateY(-1px);
+  }
+
+  #submit-game-btn:active {
+    transform: translateX(-50%) translateY(0);
+  }
     
   </style>
   
@@ -402,6 +435,12 @@
     onkeyup="searchGames()"
     class="search-bar-fixed"
   />
+
+  <!-- NEW: Submit Game Request Button -->
+  <button id="submit-game-btn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSf1tE6rElRrAsp0xc2WSgYdOXOy1ffFsg3IzdlffGS7E_Semg/viewform?usp=publish-editor', '_blank')">
+    <span>📝</span>
+    <span>Submit Game</span>
+  </button>
 
   <div id="adblock-overlay">
     <div id="adblock-popup">
