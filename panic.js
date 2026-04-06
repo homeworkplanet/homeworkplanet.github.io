@@ -1,16 +1,15 @@
 // =============================================
-// PANIC.JS (SHIFT + TAB ONLY)
-// Shift + Tab = redirect to /docs.html
-// Includes focus-lock to beat iframes
+// PANIC.JS (SHIFT+TAB TOGGLE)
+// Shift + Tab toggles between site and docs.html
 // =============================================
 
 (function () {
 
-    // ====================
-    // PANIC TRIGGER
-    // ====================
+    function goToDocs() {
+        // Save current page
+        sessionStorage.setItem("lastPage", window.location.href);
 
-    function triggerPanic() {
+        // Go to docs
         window.location.replace("/docs.html");
     }
 
@@ -22,16 +21,16 @@
         if (isShiftTab) {
             e.preventDefault();
             e.stopImmediatePropagation();
-            triggerPanic();
+            goToDocs();
         }
     }
 
-    // Capture phase (strongest possible)
+    // Key listeners (strong)
     window.addEventListener('keydown', handleKey, true);
     document.addEventListener('keydown', handleKey, true);
 
     // ====================
-    // FOCUS LOCK (DIRTY TRICK)
+    // FOCUS LOCK (IMPORTANT)
     // ====================
 
     const focusTrap = document.createElement('input');
@@ -49,8 +48,7 @@
             focusTrap.focus();
         }
 
-        // Constantly reclaim focus
-        setInterval(forceFocus, 50);
+        setInterval(forceFocus, 40);
 
         document.addEventListener('click', forceFocus, true);
         document.addEventListener('mousemove', forceFocus, true);
