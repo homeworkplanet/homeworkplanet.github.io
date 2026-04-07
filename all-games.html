@@ -311,10 +311,43 @@
       display: none !important;
     }
 
-    #submit-game-btn {
+    #hide-tab-btn {
+    position: fixed;
+    top: 33px;
+    left: 50%;                    /* Positioned between search bar and favorites */
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #1c223c;
+    color: #4f7cff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 14px;
+    border: 1px solid #4f7cff44;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  #hide-tab-btn:hover {
+    background: #28304f;
+    border-color: #4f7cff;
+    box-shadow: 0 0 12px rgba(79, 124, 255, 0.35);
+    color: #fff;
+    transform: translateX(-50%) translateY(-1px);
+  }
+
+  #hide-tab-btn:active {
+    transform: translateX(-50%) translateY(0);
+  }
+
+     #submit-game-btn {
     position: fixed;
     top: 14px;
-    left: 70%;                    /* Positioned between search bar and favorites */
+    left: 50%;                    /* Positioned between search bar and favorites */
     transform: translateX(-50%);
     z-index: 9999;
     background: #1c223c;
@@ -441,6 +474,23 @@
     <span>📝</span>
     <span>Submit Game</span>
   </button>
+
+  <button onclick="disguiseTab()">Disguise as Google Docs</button>
+
+<script>
+function disguiseTab() {
+  document.title = "Google Docs";
+
+  let favicon = document.querySelector("link[rel~='icon']");
+  if (!favicon) {
+    favicon = document.createElement("link");
+    favicon.rel = "icon";
+    document.head.appendChild(favicon);
+  }
+
+  favicon.href = "https://upload.wikimedia.org/wikipedia/commons/e/ec/GDocs_Favicon_Recreation.png?_=20220509151807";
+}
+</script>
 
   <div id="adblock-overlay">
     <div id="adblock-popup">
