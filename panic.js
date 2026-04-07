@@ -1,3 +1,6 @@
+// panic.js
+
+// Function to apply the Google Docs disguise
 function applyDisguise() {
   document.title = "Google Docs";
 
@@ -11,22 +14,15 @@ function applyDisguise() {
   favicon.href = "https://upload.wikimedia.org/wikipedia/commons/e/ec/GDocs_Favicon_Recreation.png";
 }
 
-// ALWAYS check on load
-(function () {
-  if (localStorage.getItem("disguised") === "true") {
-    applyDisguise();
-  }
-})();
+// Function to enable disguise (called by button)
+function enableDisguise() {
+  localStorage.setItem("disguised", "true"); // save globally
+  applyDisguise(); // apply immediately in this tab
+}
 
-// Sync across tabs
+// Listen for storage changes to sync across tabs
 window.addEventListener("storage", (event) => {
   if (event.key === "disguised" && event.newValue === "true") {
     applyDisguise();
   }
 });
-
-// Button trigger
-function enableDisguise() {
-  localStorage.setItem("disguised", "true");
-  applyDisguise(); // apply immediately in this tab
-}
