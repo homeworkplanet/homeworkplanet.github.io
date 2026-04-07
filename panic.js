@@ -1,3 +1,5 @@
+// --- DISGUISE LOGIC ---
+
 // Function to apply the Google Docs disguise
 function applyDisguise() {
   document.title = "Google Docs";
@@ -26,33 +28,64 @@ window.addEventListener("storage", (event) => {
   }
 });
 
-// Button trigger for the disguise
+// Button trigger for the disguise (if you call this elsewhere)
 function enableDisguise() {
   localStorage.setItem("disguised", "true");
   applyDisguise(); 
 }
 
-// --- NEW CODE STARTS HERE ---
+// --- NAVIGATION BUTTON & STYLES ---
 
-/**
- * Function to navigate to the docs page
- */
-function goToDocs() {
-    // This changes the current tab to docs.html
+(function initializePanicButton() {
+  // 1. Inject your CSS into the document head
+  const style = document.createElement('style');
+  style.textContent = `
+    #hide-tab-btn {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translate(-50%, 0); /* combine X + Y */
+      z-index: 9999;
+      background: #1c223c;
+      color: #4f7cff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 14px;
+      border: 1px solid #4f7cff44;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      font-family: sans-serif;
+    }
+
+    #hide-tab-btn:hover {
+      background: #28304f;
+      border-color: #4f7cff;
+      box-shadow: 0 0 12px rgba(79, 124, 255, 0.35);
+      color: #fff;
+      transform: translate(-50%, -1px); /* keep X centering */
+    }
+
+    #hide-tab-btn:active {
+      transform: translate(-50%, 0); /* keep X centering */
+    }
+  `;
+  document.head.appendChild(style);
+
+  // 2. Create the button element
+  const btn = document.createElement("button");
+  btn.id = "hide-tab-btn";
+  btn.innerHTML = "Open Docs"; // You can change this text as needed
+  
+  // 3. Set the click action to open your docs page
+  btn.onclick = function() {
     window.location.href = "docs.html";
-}
+  };
 
-/**
- * Automatically create the button and add it to the page
- */
-(function createDocsButton() {
-    const btn = document.createElement("button");
-    btn.innerHTML = "Open Docs";
-    btn.id = "panic-docs-nav-btn"; // You can use this ID in your CSS later
-    
-    // Attach the navigation function
-    btn.onclick = goToDocs;
-
-    // Add it to the end of the body
-    document.body.appendChild(btn);
+  // 4. Add the button to the page
+  document.body.appendChild(btn);
 })();
