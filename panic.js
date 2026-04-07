@@ -40,8 +40,8 @@ function enableDisguise() {
   style.textContent = `
     #hide-tab-btn {
       position: fixed;
-      top: 80px;
-      left: 20%;
+      top: 90px;
+      left: 2%;
       transform: translate(-50%, 0);
       z-index: 9999;
       background: #1c223c;
