@@ -1,5 +1,3 @@
-// --- DISGUISE LOGIC ---
-
 // Function to apply the Google Docs disguise
 function applyDisguise() {
   document.title = "Google Docs";
@@ -28,23 +26,23 @@ window.addEventListener("storage", (event) => {
   }
 });
 
-// Button trigger for the disguise (if you call this elsewhere)
+// Button trigger
 function enableDisguise() {
   localStorage.setItem("disguised", "true");
   applyDisguise(); 
 }
 
-// --- NAVIGATION BUTTON & STYLES ---
+// --- NEW FUNCTIONALITY WITH YOUR CSS ---
 
 (function initializePanicButton() {
-  // 1. Inject your CSS into the document head
+  // 1. Inject the CSS into the <head>
   const style = document.createElement('style');
   style.textContent = `
     #hide-tab-btn {
       position: fixed;
       top: 80px;
-      left: 20%;
-      transform: translate(-50%, 0); /* combine X + Y */
+      left: 50%;
+      transform: translate(-50%, 0);
       z-index: 9999;
       background: #1c223c;
       color: #4f7cff;
@@ -59,7 +57,7 @@ function enableDisguise() {
       align-items: center;
       gap: 6px;
       white-space: nowrap;
-      font-family: sans-serif;
+      font-family: sans-serif; /* Added for clean look */
     }
 
     #hide-tab-btn:hover {
@@ -67,11 +65,11 @@ function enableDisguise() {
       border-color: #4f7cff;
       box-shadow: 0 0 12px rgba(79, 124, 255, 0.35);
       color: #fff;
-      transform: translate(-50%, -1px); /* keep X centering */
+      transform: translate(-50%, -1px);
     }
 
     #hide-tab-btn:active {
-      transform: translate(-50%, 0); /* keep X centering */
+      transform: translate(-50%, 0);
     }
   `;
   document.head.appendChild(style);
@@ -79,13 +77,13 @@ function enableDisguise() {
   // 2. Create the button element
   const btn = document.createElement("button");
   btn.id = "hide-tab-btn";
-  btn.innerHTML = "Open Docs"; // You can change this text as needed
+  btn.innerHTML = `<span>Open Docs</span>`; // You can add an icon emoji here too
   
-  // 3. Set the click action to open your docs page
+  // 3. Set the click action
   btn.onclick = function() {
     window.location.href = "docs.html";
   };
 
-  // 4. Add the button to the page
+  // 4. Add it to the page
   document.body.appendChild(btn);
 })();
