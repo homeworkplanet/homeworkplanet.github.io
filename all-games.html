@@ -475,20 +475,12 @@
     <span>Submit Game</span>
   </button>
 
-<button id="hide-tab-btn" onclick="disguiseTab()">Disguise as Google Docs</button>
+<button id="panic-btn" onclick="activateDisguise()">Disguise as Google Docs</button>
 
 <script>
-function disguiseTab() {
-  document.title = "Google Docs";
-
-  let favicon = document.querySelector("link[rel~='icon']");
-  if (!favicon) {
-    favicon = document.createElement("link");
-    favicon.rel = "icon";
-    document.head.appendChild(favicon);
-  }
-
-  favicon.href = "https://upload.wikimedia.org/wikipedia/commons/e/ec/GDocs_Favicon_Recreation.png?_=20220509151807";
+function activateDisguise() {
+  localStorage.setItem("disguised", "true"); // save globally
+  applyDisguise(); // apply instantly on homepage
 }
 </script>
 
