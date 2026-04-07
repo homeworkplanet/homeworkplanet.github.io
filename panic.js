@@ -1,5 +1,4 @@
-<script>
-function disguiseTab() {
+function applyDisguise() {
   document.title = "Google Docs";
 
   let favicon = document.querySelector("link[rel~='icon']");
@@ -10,15 +9,11 @@ function disguiseTab() {
   }
 
   favicon.href = "https://upload.wikimedia.org/wikipedia/commons/e/ec/GDocs_Favicon_Recreation.png?_=20220509151807";
-
-  // Save state so it persists across pages
-  localStorage.setItem("disguised", "true");
 }
 
-// Run automatically on every page load if previously enabled
+// Apply automatically on every page if activated
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("disguised") === "true") {
-    disguiseTab();
+    applyDisguise();
   }
 });
-</script>
