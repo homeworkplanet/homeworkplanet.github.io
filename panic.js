@@ -13,7 +13,12 @@ function applyDisguise() {
   favicon.href = "https://upload.wikimedia.org/wikipedia/commons/e/ec/GDocs_Favicon_Recreation.png";
 }
 
-// 🔥 Sync across other tabs when disguise is activated
+// Check on page load if disguise is active
+if (localStorage.getItem("disguised") === "true") {
+  applyDisguise();
+}
+
+// Sync across other tabs when disguise is activated
 window.addEventListener("storage", (event) => {
   if (event.key === "disguised" && event.newValue === "true") {
     applyDisguise();
