@@ -41,7 +41,7 @@ function enableDisguise() {
     #hide-tab-btn {
       position: fixed;
       top: 90px;
-      left: 12%;
+      left: 5.5%;
       transform: translate(-50%, 0);
       z-index: 9999;
       background: #1c223c;
