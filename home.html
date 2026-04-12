@@ -184,58 +184,79 @@
       display: none !important;
     }
 
-    #adblock-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 18, 32, 0.96);
-      z-index: 100000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(6px);
-    }
-    #adblock-popup {
-      background: #1c223c;
-      border-radius: 14px;
-      padding: 32px 28px;
-      max-width: 420px;
-      text-align: center;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
-                  0 0 20px rgba(79, 124, 255, 0.25);
-      border: 1px solid rgba(79, 124, 255, 0.18);
-    }
-    #adblock-popup h2 {
-      margin: 0 0 16px;
-      font-size: 24px;
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(79, 124, 255, 0.4);
-    }
-    #adblock-popup p {
-      margin: 0 0 24px;
-      font-size: 16px;
-      color: #ccc;
-      line-height: 1.5;
-    }
-    #adblock-popup button {
-      background: #28304f;
-      color: #fff;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 14px 32px;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-    #adblock-popup button:hover {
-      background: #4f7cff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(79, 124, 255, 0.5);
-    }
-    #adblock-popup button:active {
-      transform: translateY(0);
-    }
+  #adblock-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 18, 32, 0.96);
+  z-index: 100000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#adblock-overlay.show {
+  display: flex;
+  opacity: 1;
+}
+
+#adblock-popup {
+  background: #1c223c;
+  border-radius: 14px;
+  padding: 32px 28px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+              0 0 20px rgba(79, 124, 255, 0.25);
+  border: 1px solid rgba(79, 124, 255, 0.18);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#adblock-overlay.show #adblock-popup {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#adblock-popup h2 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(79, 124, 255, 0.4);
+}
+
+#adblock-popup p {
+  margin: 0 0 24px;
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+#adblock-popup button {
+  background: #28304f;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#adblock-popup button:hover {
+  background: #4f7cff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 124, 255, 0.5);
+}
+
+#adblock-popup button:active {
+  transform: translateY(0);
+}
     .all-games-btn {
       display: inline-block;
       background: #1c223c;
