@@ -257,25 +257,33 @@
 #adblock-popup button:active {
   transform: translateY(0);
 }
-   .all-games-btn {
+.all-games-btn {
   display: block;
   background: #1c223c;
   color: #fff;
   font-weight: 700;
   text-decoration: none;
-  padding: 14px 26px;           /* Increased padding */
+  padding: 14px 26px;
   border-radius: 14px;
   margin: 0 auto 20px;
   text-align: center;
   width: fit-content;
-  font-size: 1.15em;            /* Makes text ~15% bigger */
-  transition: background 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 1.15em;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 15px rgba(79, 124, 255, 0.6),   /* Strong blue glow */
+    0 0 30px rgba(79, 124, 255, 0.4), 
+    0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(79, 124, 255, 0.3);
 }
 
 .all-games-btn:hover {
   background: #28304f;
-  transform: translateY(-3px);   /* Slightly stronger lift */
+  transform: translateY(-3px);
+  box-shadow: 
+    0 0 25px rgba(79, 124, 255, 0.9),   /* Even stronger glow on hover */
+    0 0 45px rgba(79, 124, 255, 0.6),
+    0 8px 20px rgba(0, 0, 0, 0.5);
 }
    .game-desc {
       display: block;
