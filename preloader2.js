@@ -1,4 +1,4 @@
-// preloader.js - Shows only on fresh page load
+// preloader.js - Skip button in bottom right
 
 function showPreloader() {
     // Skip if coming back via back button or panic mode
@@ -34,11 +34,30 @@ function showPreloader() {
                     animation: dropLogo 1.6s ease forwards;">
 
         <div class="hacker-text">SHOWING ALL GAMES 😤</div>
+
+        <!-- Skip Button - Bottom Right -->
+        <button id="skip-preloader" 
+                style="position: absolute; 
+                       bottom: 40px; 
+                       right: 40px;
+                       background: rgba(255,255,255,0.5); 
+                       color: white; 
+                       border: none; 
+                       padding: 10px 24px; 
+                       border-radius: 9999px; 
+                       font-size: 14px; 
+                       font-weight: 600; 
+                       cursor: pointer; 
+                       backdrop-filter: blur(8px);
+                       transition: all 0.3s ease;
+                       box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            SKIP
+        </button>
     `;
 
     document.body.appendChild(preloader);
 
-    // Add cool hacker-style CSS
+    // Add animation keyframes + hover effect
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes dropLogo {
@@ -73,17 +92,31 @@ function showPreloader() {
             50%  { text-shadow: 0 0 20px #00ff9d, 0 0 40px #00ff41; }
             100% { text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d; }
         }
+
+        #skip-preloader:hover {
+            background: rgba(255,255,255,0.7);
+            transform: scale(1.05);
+        }
     `;
     document.head.appendChild(style);
 
-    // Fade out after animation
+    // Skip button functionality
+    const skipBtn = document.getElementById('skip-preloader');
+    skipBtn.addEventListener('click', () => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.remove();
+        }, 800);
+    });
+
+    // Auto fade out after full animation
     setTimeout(() => {
         preloader.style.opacity = '0';
 
         setTimeout(() => {
             preloader.remove();
         }, 1300);
-    }, 2800); // Slightly longer to let the glow settle
+    }, 2800);
 }
 
 // Run only on fresh load
