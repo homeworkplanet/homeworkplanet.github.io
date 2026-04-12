@@ -880,13 +880,21 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('continue-btn');
-      if (btn) {
-        btn.addEventListener('click', () => {
-          loadAds();  // Start loading ads now
-          document.getElementById('adblock-overlay').style.display = 'none';
-        });
-      }
+     const btn = document.getElementById('continue-btn');
+if (btn) {
+  btn.addEventListener('click', () => {
+    const overlay = document.getElementById('adblock-overlay');
+    
+    // Fade out smoothly
+    overlay.style.opacity = '0';
+
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      overlay.style.opacity = '1';        // Reset for next time
+      loadAds();
+    }, 600);
+  });
+}
 
       /* ====================== FAVORITES FEATURE ====================== */
       // 1. Turn every .game-label into flex with title + star
