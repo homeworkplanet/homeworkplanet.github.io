@@ -258,20 +258,23 @@
   transform: translateY(0);
 }
     .all-games-btn {
-      display: inline-block;
-      background: #1c223c;
-      color: #fff;
-      font-weight: 700;
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 14px;
-      margin: 0 auto 20px;
-      text-align: center;
-      transition: background 0.2s;
-    }
-    .all-games-btn:hover {
-      background: #28304f;
-    }
+  display: block;                    /* Changed to block for easy centering */
+  background: #1c223c;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 14px;
+  margin: 0 auto 20px;               /* This centers it horizontally */
+  text-align: center;
+  width: fit-content;                /* Makes button only as wide as text */
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.all-games-btn:hover {
+  background: #28304f;
+  transform: translateY(-2px);       /* Nice subtle lift on hover */
+}
    .game-desc {
       display: block;
       opacity: 0;
