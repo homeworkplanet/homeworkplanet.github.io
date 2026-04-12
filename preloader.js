@@ -1,4 +1,4 @@
-// preloader.js - Skip button in bottom right
+// preloader.js - Skip button in bottom right + instant focus
 
 function showPreloader() {
     // Skip if coming back via back button or panic mode
@@ -57,7 +57,7 @@ function showPreloader() {
 
     document.body.appendChild(preloader);
 
-    // Add animation keyframes + hover effect
+    // Add animation keyframes
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes dropLogo {
@@ -100,21 +100,38 @@ function showPreloader() {
     `;
     document.head.appendChild(style);
 
+    // Function to force focus to the page
+    function forceFocus() {
+        window.focus();
+        document.documentElement.focus();
+        document.body.focus();
+        
+        // Extra trick: create and focus a temporary invisible input
+        const tempInput = document.createElement('input');
+        tempInput.style.position = 'absolute';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.focus();
+        tempInput.remove();
+    }
+
     // Skip button functionality
     const skipBtn = document.getElementById('skip-preloader');
     skipBtn.addEventListener('click', () => {
         preloader.style.opacity = '0';
         setTimeout(() => {
             preloader.remove();
+            forceFocus();           // Force focus immediately when skipped
         }, 800);
     });
 
-    // Auto fade out after full animation
+    // Auto fade out + force focus
     setTimeout(() => {
         preloader.style.opacity = '0';
 
         setTimeout(() => {
             preloader.remove();
+            forceFocus();           // Force focus when animation finishes
         }, 1300);
     }, 2800);
 }
