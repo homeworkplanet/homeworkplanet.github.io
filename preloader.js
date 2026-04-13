@@ -32,8 +32,7 @@ function showPreloader() {
                     animation: dropLogo 1.6s ease forwards;">
 
         <div class="hacker-text">THE BEST UNBLOCKED GAMES<br>
-        (REFRESH IF BUTTONS NOT WORKING)
-        </div>
+        (REFRESH IF BUTTONS NOT WORKING)</div>
 
         <!-- Skip Button - Bottom Right -->
         <button id="skip-preloader" 
