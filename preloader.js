@@ -1,5 +1,3 @@
-// preloader.js - Skip button in bottom right + scroll to top when done
-
 function showPreloader() {
     // Skip if coming back via back button or panic mode
     if (performance.navigation.type === 2 || 
