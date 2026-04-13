@@ -1,4 +1,4 @@
-// preloader.js - Skip button in bottom right + instant focus
+// preloader.js - Skip button in bottom right + gentle focus fix
 
 function showPreloader() {
     // Skip if coming back via back button or panic mode
@@ -57,7 +57,7 @@ function showPreloader() {
 
     document.body.appendChild(preloader);
 
-    // Add animation keyframes
+    // Animation keyframes
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes dropLogo {
@@ -100,38 +100,32 @@ function showPreloader() {
     `;
     document.head.appendChild(style);
 
-    // Function to force focus to the page
-    function forceFocus() {
-        window.focus();
-        document.documentElement.focus();
-        document.body.focus();
-        
-        // Extra trick: create and focus a temporary invisible input
-        const tempInput = document.createElement('input');
-        tempInput.style.position = 'absolute';
-        tempInput.style.opacity = '0';
-        document.body.appendChild(tempInput);
-        tempInput.focus();
-        tempInput.remove();
+    // Gentle focus fix - only when preloader is removed
+    function gentleFocus() {
+        // Small delay + scroll to top to prevent jumping
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.focus();
+        }, 100);
     }
 
-    // Skip button functionality
+    // Skip button
     const skipBtn = document.getElementById('skip-preloader');
     skipBtn.addEventListener('click', () => {
         preloader.style.opacity = '0';
         setTimeout(() => {
             preloader.remove();
-            forceFocus();           // Force focus immediately when skipped
+            gentleFocus();
         }, 800);
     });
 
-    // Auto fade out + force focus
+    // Auto finish
     setTimeout(() => {
         preloader.style.opacity = '0';
 
         setTimeout(() => {
             preloader.remove();
-            forceFocus();           // Force focus when animation finishes
+            gentleFocus();
         }, 1300);
     }, 2800);
 }
