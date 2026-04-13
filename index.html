@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-11292QMYXH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-11292QMYXH');
 </script>
-  
+ 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Homework Planet - Best Browser Online Homework Games for Striving Students</title>
    <link rel="icon" href="https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png" type="image/png">
-
     <style>
         @keyframes dropLogo {
             to {
@@ -72,7 +69,7 @@ function showPreloader() {
     // Skip if coming back via back button
     if (performance.navigation.type === 2 ||
         performance.getEntriesByType('navigation')[0]?.type === 'back_forward') {
-        window.location.href = 'home.html';  // go straight to home if back button
+        window.location.href = 'home.html';
         return;
     }
 
@@ -102,7 +99,7 @@ function showPreloader() {
                     opacity: 0; transform: translateY(-150px);
                     animation: dropLogo 1.6s ease forwards;">
         <div class="hacker-text">THE BEST UNBLOCKED GAMES</div>
-       
+      
         <div id="enter-site" class="enter-btn">CLICK TO ENTER</div>
         <button id="skip-preloader"
                 style="position: absolute;
@@ -133,14 +130,9 @@ function showPreloader() {
         }, 1200);
     }
 
-    // Button clicks
+    // Button clicks - only way to proceed now
     document.getElementById('skip-preloader').addEventListener('click', closePreloader);
     document.getElementById('enter-site').addEventListener('click', closePreloader);
-
-    // Auto redirect after 0.65 seconds
-    setTimeout(() => {
-        closePreloader();
-    }, 650);
 }
 
 showPreloader();
