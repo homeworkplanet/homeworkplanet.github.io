@@ -8,7 +8,6 @@
   gtag('js', new Date());
   gtag('config', 'G-11292QMYXH');
 </script>
-  
  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +66,7 @@
 
 <script>
 function showPreloader() {
-    // Skip if coming back via back button
+    // Skip preloader if user is coming back with back button
     if (performance.navigation.type === 2 ||
         performance.getEntriesByType('navigation')[0]?.type === 'back_forward') {
         window.location.href = 'home.html';
@@ -127,15 +126,16 @@ function showPreloader() {
         preloader.style.opacity = '0';
         setTimeout(() => {
             preloader.remove();
-            window.location.href = 'home.html';   // redirect to real homepage
+            window.location.href = 'home.html';
         }, 1200);
     }
 
-    // Button clicks - only way to proceed now
+    // Only close when user clicks a button - NO auto redirect
     document.getElementById('skip-preloader').addEventListener('click', closePreloader);
     document.getElementById('enter-site').addEventListener('click', closePreloader);
 }
 
+// Run it
 showPreloader();
 </script>
 
