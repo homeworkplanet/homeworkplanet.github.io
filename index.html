@@ -79,7 +79,7 @@ function showPreloader() {
         position: fixed;
         top: 0; left: 0;
         width: 100%; height: 100%;
-        background: linear-gradient(rgba(15,18,32,0.95), rgba(15,18,32,0.95)),
+        background: linear-gradient(rgba(15,18,32,0.95), rgba(15,18,32,0.95)), 
                     url("https://wallpapers.com/images/hd/dark-blue-aesthetic-calm-lake-oprig3tpij9dxsic.jpg");
         background-size: cover;
         background-position: center;
@@ -123,19 +123,21 @@ function showPreloader() {
     document.body.appendChild(preloader);
 
     function closePreloader() {
+        // Fade into matching dark color instead of white
+        preloader.style.background = 'linear-gradient(rgba(15,18,32,0.98), rgba(15,18,32,0.98))';
         preloader.style.opacity = '0';
+        
         setTimeout(() => {
             preloader.remove();
             window.location.href = 'home.html';
         }, 1200);
     }
 
-    // Only close when user clicks a button - NO auto redirect
+    // Button clicks
     document.getElementById('skip-preloader').addEventListener('click', closePreloader);
     document.getElementById('enter-site').addEventListener('click', closePreloader);
 }
 
-// Run it
 showPreloader();
 </script>
 
