@@ -1,4 +1,4 @@
-// preloader.js - Skip button in bottom right + gentle focus fix
+// preloader.js - Skip button in bottom right + scroll to top when done
 
 function showPreloader() {
     // Skip if coming back via back button or panic mode
@@ -100,13 +100,13 @@ function showPreloader() {
     `;
     document.head.appendChild(style);
 
-    // Gentle focus fix - only when preloader is removed
-    function gentleFocus() {
-        // Small delay + scroll to top to prevent jumping
-        setTimeout(() => {
-            window.scrollTo(0, 0);
-            document.documentElement.focus();
-        }, 100);
+    // Function to scroll to top when preloader is done
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'instant'   // instant = no smooth scroll animation
+        });
     }
 
     // Skip button
@@ -115,7 +115,7 @@ function showPreloader() {
         preloader.style.opacity = '0';
         setTimeout(() => {
             preloader.remove();
-            gentleFocus();
+            scrollToTop();
         }, 800);
     });
 
@@ -125,7 +125,7 @@ function showPreloader() {
 
         setTimeout(() => {
             preloader.remove();
-            gentleFocus();
+            scrollToTop();
         }, 1300);
     }, 2800);
 }
