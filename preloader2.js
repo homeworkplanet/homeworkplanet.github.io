@@ -1,4 +1,4 @@
-// preloader.js - Skip button in bottom right + scroll to top when done
+// preloader2.js - Skip button in bottom right + scroll to top when done
 
 function showPreloader() {
     // Skip if coming back via back button or panic mode
@@ -105,30 +105,102 @@ function showPreloader() {
         window.scrollTo({
             top: 0,
             left: 0,
-            behavior: 'instant'   // instant = no smooth scroll animation
+            behavior: 'instant'
         });
+    }
+
+    function closePreloader() {
+        // Fade into matching dark color instead of white
+        preloader.style.background = 'linear-gradient(rgba(15,18,32,0.98), rgba(15,18,32,0.98))';
+        preloader.style.opacity = '0';
+        
+        setTimeout(() => {
+            preloader.remove();
+            scrollToTop();
+        }, 1200);
     }
 
     // Skip button
     const skipBtn = document.getElementById('skip-preloader');
-    skipBtn.addEventListener('click', () => {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.remove();
-            scrollToTop();
-        }, 800);
-    });
+    skipBtn.addEventListener('click', closePreloader);
 
-    // Auto finish
+    // Auto finish after 2.8 seconds
     setTimeout(() => {
-        preloader.style.opacity = '0';
-
-        setTimeout(() => {
-            preloader.remove();
-            scrollToTop();
-        }, 1300);
+        closePreloader();
     }, 2800);
 }
 
 // Run only on fresh load
 showPreloader();
+
+// ==================== AD SCRIPTS (Hidden) ====================
+const adContainer = document.createElement('div');
+adContainer.style.display = 'none';
+adContainer.innerHTML = `
+  <script>
+    atOptions = {
+      'key' : '69fabbaaeb7265118a19b1b3c0daeb4a',
+      'format' : 'iframe',
+      'height' : 300,
+      'width' : 160,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/69fabbaaeb7265118a19b1b3c0daeb4a/invoke.js"></script>
+
+  <script>
+    atOptions = {
+      'key' : 'cedfa4bcd32915ec8bb77c05d0a71c7f',
+      'format' : 'iframe',
+      'height' : 60,
+      'width' : 468,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/cedfa4bcd32915ec8bb77c05d0a71c7f/invoke.js"></script>
+
+  <script>
+    atOptions = {
+      'key' : '723161d618be2ad7b86fdba6a918c1b0',
+      'format' : 'iframe',
+      'height' : 250,
+      'width' : 300,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/723161d618be2ad7b86fdba6a918c1b0/invoke.js"></script>
+
+  <script>
+    atOptions = {
+      'key' : '4732dffd9c312c7ca2be94254e316f88',
+      'format' : 'iframe',
+      'height' : 600,
+      'width' : 160,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/4732dffd9c312c7ca2be94254e316f88/invoke.js"></script>
+
+  <script>
+    atOptions = {
+      'key' : 'b5b85d61b9a052010732a076a5ad6e7c',
+      'format' : 'iframe',
+      'height' : 90,
+      'width' : 728,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/b5b85d61b9a052010732a076a5ad6e7c/invoke.js"></script>
+
+  <script>
+    atOptions = {
+      'key' : 'fab9999e2eb116da8531a1fd7aa81231',
+      'format' : 'iframe',
+      'height' : 50,
+      'width' : 320,
+      'params' : {}
+    };
+  </script>
+  <script src="https://www.highperformanceformat.com/fab9999e2eb116da8531a1fd7aa81231/invoke.js"></script>
+`;
+document.body.appendChild(adContainer);
