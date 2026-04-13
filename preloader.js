@@ -4,6 +4,12 @@ function showPreloader() {
         performance.getEntriesByType('navigation')[0]?.type === 'back_forward') {
         return;
     }
+
+    // Prevent infinite refresh loop on homepage
+    if (sessionStorage.getItem('preloaderShown')) {
+        return;   // Already showed once this session - skip everything
+    }
+
     const preloader = document.createElement('div');
     preloader.id = 'homework-preloader';
     preloader.style.cssText = `
@@ -50,6 +56,7 @@ function showPreloader() {
         </button>
     `;
     document.body.appendChild(preloader);
+
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes dropLogo {
@@ -70,7 +77,6 @@ function showPreloader() {
             opacity: 0;
             margin-bottom: 20px;
         }
-        /* Styling for the new Enter button */
         .enter-btn {
             font-family: 'Courier New', monospace;
             font-size: 20px;
@@ -81,7 +87,7 @@ function showPreloader() {
             padding: 10px 20px;
             border: 1px solid rgba(255,255,255,0.3);
             transition: all 0.3s ease;
-            animation: fadeInEnter 1s ease 2.5s forwards; /* Appears after logo/text */
+            animation: fadeInEnter 1s ease 2.5s forwards;
         }
         .enter-btn:hover {
             background: rgba(255,255,255,0.1);
@@ -101,6 +107,7 @@ function showPreloader() {
         }
     `;
     document.head.appendChild(style);
+
     function closePreloader() {
         preloader.style.opacity = '0';
         setTimeout(() => {
@@ -108,11 +115,15 @@ function showPreloader() {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         }, 1200);
     }
+
     // Event listeners for both the Skip button and the Enter text
     document.getElementById('skip-preloader').addEventListener('click', closePreloader);
     document.getElementById('enter-site').addEventListener('click', closePreloader);
 
-    // Auto refresh after 0.65 seconds so main screen buttons work again
+    // Mark that we've shown the preloader this session
+    sessionStorage.setItem('preloaderShown', 'true');
+
+    // Auto refresh after 0.65 seconds (this runs only once)
     setTimeout(() => {
         location.reload();
     }, 650);
