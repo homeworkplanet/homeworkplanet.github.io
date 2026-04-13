@@ -32,8 +32,9 @@ function showPreloader() {
                     animation: dropLogo 1.6s ease forwards;">
 
         <div class="hacker-text">THE BEST UNBLOCKED GAMES</div>
+        
+        <div id="enter-site" class="enter-btn">CLICK TO ENTER</div>
 
-        <!-- Skip Button - Bottom Right -->
         <button id="skip-preloader" 
                 style="position: absolute; 
                        bottom: 40px; 
@@ -55,7 +56,6 @@ function showPreloader() {
 
     document.body.appendChild(preloader);
 
-    // Animation keyframes
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes dropLogo {
@@ -72,23 +72,39 @@ function showPreloader() {
             letter-spacing: 4px;
             color: #00ff9d;
             text-transform: uppercase;
-            text-shadow: 
-                0 0 10px #00ff9d,
-                0 0 20px #00ff9d,
-                0 0 40px #00ff41;
-            animation: hackerGlow 1.5s ease 1s forwards,
-                       scanline 4s linear infinite;
+            text-shadow: 0 0 10px #00ff9d;
+            animation: hackerGlow 1.5s ease 1s forwards;
             opacity: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the new Enter button */
+        .enter-btn {
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            opacity: 0;
+            margin-top: 30px;
+            padding: 10px 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            animation: fadeInEnter 1s ease 2.5s forwards; /* Appears after logo/text */
+        }
+
+        .enter-btn:hover {
+            background: rgba(255,255,255,0.1);
+            letter-spacing: 2px;
+            color: #00ff9d;
+            border-color: #00ff9d;
         }
 
         @keyframes hackerGlow {
             to { opacity: 1; }
         }
 
-        @keyframes scanline {
-            0%   { text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d; }
-            50%  { text-shadow: 0 0 20px #00ff9d, 0 0 40px #00ff41; }
-            100% { text-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d; }
+        @keyframes fadeInEnter {
+            to { opacity: 1; }
         }
 
         #skip-preloader:hover {
@@ -98,35 +114,17 @@ function showPreloader() {
     `;
     document.head.appendChild(style);
 
-    // Function to scroll to top when preloader is done
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'instant'   // instant = no smooth scroll animation
-        });
+    function closePreloader() {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.remove();
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }, 1200);
     }
 
-    // Skip button
-    const skipBtn = document.getElementById('skip-preloader');
-    skipBtn.addEventListener('click', () => {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.remove();
-            scrollToTop();
-        }, 800);
-    });
-
-    // Auto finish
-    setTimeout(() => {
-        preloader.style.opacity = '0';
-
-        setTimeout(() => {
-            preloader.remove();
-            scrollToTop();
-        }, 1300);
-    }, 2800);
+    // Event listeners for both the Skip button and the Enter text
+    document.getElementById('skip-preloader').addEventListener('click', closePreloader);
+    document.getElementById('enter-site').addEventListener('click', closePreloader);
 }
 
-// Run only on fresh load
 showPreloader();
