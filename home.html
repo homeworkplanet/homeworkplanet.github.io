@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <script>
+  (function() {
+    // Check if the user came from index.html
+    const cameFromIndex = document.referrer.includes("index.html");
+    // Check if we have already performed the auto-refresh this session
+    const alreadyRefreshed = sessionStorage.getItem("oneTimeRefresh");
+
+    if (cameFromIndex && !alreadyRefreshed) {
+      setTimeout(() => {
+        // Mark as refreshed so it doesn't loop
+        sessionStorage.setItem("oneTimeRefresh", "true");
+        location.reload();
+      }, 500); // 0.5 seconds
+    }
+  })();
+</script>
+  
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-11292QMYXH"></script>
 <script>
