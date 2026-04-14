@@ -4,17 +4,16 @@
 
   <script>
   (function() {
-    // Check if the user came from index.html
-    const cameFromIndex = document.referrer.includes("index.html");
-    // Check if we have already performed the auto-refresh this session
+    const ref = document.referrer;
+    // This checks for "index.html" OR if the referrer is just your main site URL
+    const cameFromIndex = ref.includes("index.html") || ref === "https://homeworkplanet.github.io/";
     const alreadyRefreshed = sessionStorage.getItem("oneTimeRefresh");
 
     if (cameFromIndex && !alreadyRefreshed) {
       setTimeout(() => {
-        // Mark as refreshed so it doesn't loop
         sessionStorage.setItem("oneTimeRefresh", "true");
         location.reload();
-      }, 500); // 0.5 seconds
+      }, 500);
     }
   })();
 </script>
