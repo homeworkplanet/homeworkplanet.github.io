@@ -2309,6 +2309,16 @@ if (btn) {
       }
       /* ====================== END FAVORITES ====================== */
     });
+
+      document.addEventListener('DOMContentLoaded', function() {
+    const changelogBtn = document.getElementById('changelog-btn');
+    if (changelogBtn) {
+        changelogBtn.addEventListener('click', function() {
+            window.location.href = 'changelog.html';
+        });
+    }
+});
+      
   </script>
 
   
