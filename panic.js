@@ -77,7 +77,10 @@ function enableDisguise() {
   // 2. Create the button element
   const btn = document.createElement("button");
   btn.id = "hide-tab-btn";
-  btn.innerHTML = `<span>HIDE TAB</span>`; // You can add an icon emoji here too
+  btn.innerHTML = `
+    <span class="icon">🤫</span>
+    <span class="text">Hide Tab</span>
+`;
   
   // 3. Set the click action
   btn.onclick = function() {
