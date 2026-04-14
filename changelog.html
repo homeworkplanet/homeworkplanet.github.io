@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-11292QMYXH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-11292QMYXH');
+</script>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://homeworkplanet.github.io/home.html">
+  <title>Homework Planet - Changelog</title>
+  <link rel="icon" href="https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png" type="image/png">
+
+  <script>
+  (function () {
+    document.addEventListener("DOMContentLoaded", function () {
+      if (sessionStorage.getItem("adblockChecked")) return;
+      sessionStorage.setItem("adblockChecked", "1");
+      const bait = document.createElement("div");
+      bait.className = "adsbox ad-banner ad-placement";
+      bait.style.position = "absolute";
+      bait.style.left = "-999px";
+      document.body.appendChild(bait);
+      setTimeout(function () {
+        if (bait.offsetHeight === 0) {
+          document.getElementById("adblock-overlay").style.display = "flex";
+        }
+        bait.remove();
+      }, 200);
+    });
+  })();
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, Arial, sans-serif;
+      color: #fff;
+      background:
+        linear-gradient(
+          rgba(15,18,32,0.88),
+          rgba(15,18,32,0.88)
+        ),
+        url("https://wallpapers.com/images/hd/dark-blue-aesthetic-calm-lake-oprig3tpij9dxsic.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .site-logo {
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      z-index: 9999;
+    }
+    .site-logo img {
+      height: 72px;
+    }
+    .kofi-btn {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      background: #1c223c;
+      padding: 8px 14px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .kofi-btn img {
+      height: 26px;
+    }
+    .kofi-btn span {
+      font-weight: 700;
+      font-size: 14px;
+      color: #ff5e5e;
+    }
+    .content {
+      padding: 100px 24px 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* Changelog Styles */
+    .changelog-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .changelog-entry {
+      background: #1c223c;
+      border-radius: 14px;
+      padding: 28px;
+      border: 1px solid rgba(79, 124, 255, 0.18);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      transition: all 0.25s ease;
+    }
+    .changelog-entry:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(79, 124, 255, 0.25);
+    }
+    .changelog-date {
+      font-size: 14px;
+      color: #4f7cff;
+      font-weight: 600;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .changelog-title {
+      font-size: 23px;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      color: #fff;
+    }
+    .changelog-body {
+      line-height: 1.65;
+      color: #ddd;
+      font-size: 15.5px;
+    }
+    .changelog-body ul {
+      padding-left: 22px;
+      margin: 14px 0;
+    }
+    .changelog-body li {
+      margin-bottom: 8px;
+    }
+
+    /* Search Bar */
+    .search-bar-fixed {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      width: 240px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: #1c223c;
+      color: white;
+      font-size: 13px;
+      outline: none;
+      z-index: 9999;
+      transition: all 0.25s ease;
+    }
+    .search-bar-fixed:hover {
+      border-color: #4f7cff;
+      box-shadow: 0 0 12px rgba(79, 124, 255, 0.35);
+      transform: translateY(-1px);
+    }
+    .search-bar-fixed:focus {
+      border-color: #4f7cff;
+      box-shadow: 0 0 16px rgba(79, 124, 255, 0.55);
+    }
+    .search-bar-fixed::placeholder {
+      color: #9aa0c4;
+    }
+
+    /* Keep your other original styles (adblock, etc.) */
+    #adblock-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 18, 32, 0.96);
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+    #adblock-popup {
+      background: #1c223c;
+      border-radius: 14px;
+      padding: 32px 28px;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6),
+                  0 0 20px rgba(79, 124, 255, 0.25);
+      border: 1px solid rgba(79, 124, 255, 0.18);
+    }
+    #adblock-popup button {
+      background: #28304f;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    #adblock-popup button:hover {
+      background: #4f7cff;
+      transform: translateY(-2px);
+    }
+
+    .category-header {
+      text-align: center;
+      margin: 20px 0 40px;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(79, 124, 255, 0.4);
+    }
+  </style>
+  
+</head>
+<body>
+
+   <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : '69fabbaaeb7265118a19b1b3c0daeb4a',
+    'format' : 'iframe',
+    'height' : 300,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/69fabbaaeb7265118a19b1b3c0daeb4a/invoke.js"></script>
+</div>
+
+   <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : 'cedfa4bcd32915ec8bb77c05d0a71c7f',
+    'format' : 'iframe',
+    'height' : 60,
+    'width' : 468,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/cedfa4bcd32915ec8bb77c05d0a71c7f/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : '723161d618be2ad7b86fdba6a918c1b0',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/723161d618be2ad7b86fdba6a918c1b0/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : '4732dffd9c312c7ca2be94254e316f88',
+    'format' : 'iframe',
+    'height' : 600,
+    'width' : 160,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/4732dffd9c312c7ca2be94254e316f88/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : 'b5b85d61b9a052010732a076a5ad6e7c',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/b5b85d61b9a052010732a076a5ad6e7c/invoke.js"></script>
+</div>
+
+  <div style="display: none;">
+<script>
+  atOptions = {
+    'key' : 'fab9999e2eb116da8531a1fd7aa81231',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/fab9999e2eb116da8531a1fd7aa81231/invoke.js"></script>
+</div>
+  
+  <input
+    type="text"
+    id="gameSearch"
+    placeholder="Search changelog…"
+    onkeyup="searchChangelog()"
+    class="search-bar-fixed"
+  />
+
+  <div id="adblock-overlay">
+    <div id="adblock-popup">
+      <h2>Please support Homework Planet ❤️</h2>
+      <p>Hey Homework Planet user! You're not obligated to, but disabling your adblocker would greatly help keep the site free and running. Thanks for understanding!</p>
+      <button id="continue-btn">Continue</button>
+    </div>
+  </div>
+
+  <a href="home.html" class="site-logo">
+    <img src="https://i.imgur.com/QXhoS1t.png">
+  </a>
+
+  <a href="https://ko-fi.com/homeworkplanet" target="_blank" class="kofi-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Ko-fi_Logo.png">
+    <span>Support Homework Planet</span>
+  </a>
+
+  <div class="content">
+
+    <h1 class="category-header">Changelog</h1>
+
+    <div class="changelog-grid" id="changelog-grid">
+
+      <!-- First Changelog Entry -->
+      <div class="changelog-entry">
+        <div class="changelog-date">April 13, 2026</div>
+        <div class="changelog-title">🤫 Changelog released!</div>
+        <div class="changelog-body">
+          <p>Hey Homework Planet crew! We've just launched this dedicated Changelog page so you can always stay up to date with what's new, what's improved, and what's coming next.</p>
+          
+          <p>From now on, every major update, new emulator addition, performance tweak, UI change, or bug fix will be clearly documented here.</p>
+
+          <h3>🚀 What’s new with this launch:</h3>
+          <ul>
+            <li>✨ Brand new clean Changelog section</li>
+            <li>🔍 Fully functional search — find any update instantly</li>
+            <li>📅 Proper dated entries for better tracking</li>
+            <li>🛠️ Improved structure ready for future updates</li>
+            <li>🤫 Added the stealthy shushing emoji to the hide tab button for maximum school stealth mode</li>
+            <li>🎨 Refined dark UI with better hover effects and readability</li>
+          </ul>
+
+          <p>More emulators, faster loading times, mobile improvements, and exciting new features are already being worked on. We'll keep this page updated regularly so you never miss anything.</p>
+
+          <p>Thanks for using Homework Planet — keep grinding those levels (and homework) 💪</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Search function for changelog
+    function searchChangelog() {
+      const input = document.getElementById("gameSearch").value.toLowerCase().trim();
+      const entries = document.querySelectorAll(".changelog-entry");
+      
+      entries.forEach(entry => {
+        const text = entry.innerText.toLowerCase();
+        entry.style.display = text.includes(input) ? "" : "none";
+      });
+    }
+
+    // Adblock continue button
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('continue-btn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          document.getElementById('adblock-overlay').style.display = 'none';
+          // You can call loadAds() here if you want to re-enable ads
+        });
+      }
+    });
+  </script>
+
+  <script src="panic.js"></script>
+
+</body>
+</html>
