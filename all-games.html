@@ -2361,25 +2361,6 @@ if (btn) {
   });
 }
 
-document.getElementById('bookmark-btn').addEventListener('click', function() {
-    // 1. Define the original and cloaked states
-    const originalTitle = "Homework Planet - Best Browser Online Homework Games for Striving Students";
-    const originalFaviconUrl = "https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png";
-    
-    const cloakTitle = "Google Classroom";
-    const cloakFaviconUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdZlkVJk93uK_JWHnKPWR1pqifjtFlwv4aPg&s";
-
-    // Helper function to update the favicon
-    function changeFavicon(src) {
-        let link = document.querySelector("link[rel~='icon']");
-        if (!link) {
-            link = document.createElement('link');
-            link.rel = 'icon';
-            document.head.appendChild(link);
-        }
-        link.href = src;
-    }
-
  document.getElementById('bookmark-btn').addEventListener('click', function() {
     // 1. Define the original and cloaked states
     const originalTitle = "Homework Planet - Best Browser Online Homework Games for Striving Students";
