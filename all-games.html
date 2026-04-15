@@ -435,6 +435,39 @@
 #changelog-btn:active {
     transform: translate(-50%, 0);
 }
+       #bookmark-btn {
+    position: fixed;
+    top: 110px;
+    left: 5.5%;                    /* Positioned between search bar and favorites */
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: #1c223c;
+    color: #4f7cff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 14px;
+    border: 1px solid #4f7cff44;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  #bookmark-btn:hover {
+    background: #28304f;
+    border-color: #4f7cff;
+    box-shadow: 0 0 12px rgba(79, 124, 255, 0.35);
+    color: #fff;
+    transform: translateX(-50%) translateY(-1px);
+  }
+
+  #bookmark-btn:active {
+    transform: translateX(-50%) translateY(0);
+  }
+
     
   </style>
   
@@ -541,6 +574,11 @@
   <button id="changelog-btn">
     <span>✨</span>
     <span>Changelog</span>
+</button>
+
+   <button id="bookmark-btn">
+    <span>📚</span>
+    <span>Bookmark (Cloaks Site)</span>
 </button>
 
   <div id="adblock-overlay">
@@ -2323,6 +2361,65 @@ if (btn) {
   });
 }
 
+document.getElementById('bookmark-btn').addEventListener('click', function() {
+    // 1. Define the original and cloaked states
+    const originalTitle = "Homework Planet - Best Browser Online Homework Games for Striving Students";
+    const originalFaviconUrl = "https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png";
+    
+    const cloakTitle = "Google Classroom";
+    const cloakFaviconUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdZlkVJk93uK_JWHnKPWR1pqifjtFlwv4aPg&s";
+
+    // Helper function to update the favicon
+    function changeFavicon(src) {
+        let link = document.querySelector("link[rel~='icon']");
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'icon';
+            document.head.appendChild(link);
+        }
+        link.href = src;
+    }
+
+ document.getElementById('bookmark-btn').addEventListener('click', function() {
+    // 1. Define the original and cloaked states
+    const originalTitle = "Homework Planet - Best Browser Online Homework Games for Striving Students";
+    const originalFaviconUrl = "https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png";
+    
+    const cloakTitle = "Google Classroom";
+    const cloakFaviconUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdZlkVJk93uK_JWHnKPWR1pqifjtFlwv4aPg&s";
+
+    // Helper function to update the favicon
+    function changeFavicon(src) {
+        let link = document.querySelector("link[rel~='icon']");
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'icon';
+            document.head.appendChild(link);
+        }
+        link.href = src;
+    }
+
+    // 2. Instantly apply the cloak
+    document.title = cloakTitle;
+    changeFavicon(cloakFaviconUrl);
+
+    // 3. Wait a tiny fraction of a second to let the browser update the tab visually, 
+    // then ask the user to bookmark it manually.
+    setTimeout(function() {
+        // Check if the user is on a Mac to give them the right keyboard shortcut
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        const shortcut = isMac ? 'Cmd+D' : 'Ctrl+D';
+        
+        // This alert pauses the script. While paused, the site looks like Google Classroom.
+        alert(`The site is hidden! Press ${shortcut} right now to bookmark it as Google Classroom.\n\nClick "OK" when you are done.`);
+
+        // 4. Revert to original state once they click OK on the alert
+        document.title = originalTitle;
+        changeFavicon(originalFaviconUrl);
+        
+    }, 100); // 100 millisecond delay
+});
+      
       /* ====================== FAVORITES FEATURE (FIXED) ====================== */
       // 1. Turn every .game-label into flex with title + star (height increased, width unchanged)
       document.querySelectorAll('.game-label').forEach(label => {
