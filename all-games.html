@@ -2381,15 +2381,18 @@ if (btn) {
   });
 }
 
- document.getElementById('bookmark-btn').addEventListener('click', function() {
-    // 1. Define the original and cloaked states
+document.getElementById('bookmark-btn').addEventListener('click', function() {
+    // 1. Define original states
     const originalTitle = "Homework Planet - Best Browser Online Homework Games for Striving Students";
     const originalFaviconUrl = "https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png";
+    const originalUrl = window.location.href; // Save the real URL
     
+    // 2. Define cloaked states
     const cloakTitle = "Google Classroom";
     const cloakFaviconUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdZlkVJk93uK_JWHnKPWR1pqifjtFlwv4aPg&s";
+    // Create a fake URL for the bookmark to attach to
+    const cloakUrl = originalUrl.includes('?') ? originalUrl + '&gc=true' : originalUrl + '?gc=true';
 
-    // Helper function to update the favicon
     function changeFavicon(src) {
         let link = document.querySelector("link[rel~='icon']");
         if (!link) {
@@ -2400,25 +2403,24 @@ if (btn) {
         link.href = src;
     }
 
-    // 2. Instantly apply the cloak
+    // 3. Apply the cloak (Title, Favicon, AND the URL)
     document.title = cloakTitle;
     changeFavicon(cloakFaviconUrl);
+    window.history.pushState({}, '', cloakUrl); // Changes URL without reloading the page
 
-    // 3. Wait a tiny fraction of a second to let the browser update the tab visually, 
-    // then ask the user to bookmark it manually.
+    // 4. Wait for visual update, then prompt
     setTimeout(function() {
-        // Check if the user is on a Mac to give them the right keyboard shortcut
         const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
         const shortcut = isMac ? 'Cmd+D' : 'Ctrl+D';
         
-        // This alert pauses the script. While paused, the site looks like Google Classroom.
         alert(`The site is hidden! Press ${shortcut} right now to bookmark it as Google Classroom.\n\nClick "OK" when you are done.`);
 
-        // 4. Revert to original state once they click OK on the alert
+        // 5. Revert everything back to normal once they click OK
         document.title = originalTitle;
         changeFavicon(originalFaviconUrl);
+        window.history.replaceState({}, '', originalUrl); // Reverts the URL back
         
-    }, 100); // 100 millisecond delay
+    }, 100); 
 });
       
       /* ====================== FAVORITES FEATURE (FIXED) ====================== */
