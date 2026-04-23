@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="manifest" href="/manifest.json">
+
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-11292QMYXH"></script>
 <script>
@@ -613,10 +613,42 @@ img.broken-icon {
     <span>Changelog</span>
 </button>
 
+  <link rel="manifest" href="manifest.json">
+
    <button id="installBtn">
     <span>📚</span>
     <span>Install App</span>
 </button>
+
+  <script>
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+
+  // 1. Listen for the browser's hidden "can install" event
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Stop the default mini-bar
+    deferredPrompt = e; // Save the event for later
+    installBtn.style.display = 'block'; // Show your button
+  });
+
+  // 2. When the user clicks your button...
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Show the "Create Shortcut" dialog
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`User response: ${outcome}`);
+      deferredPrompt = null;
+      installBtn.style.display = 'none';
+    }
+  });
+</script>
+
+<script>
+  // Register the Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+</script>
 
   <div id="adblock-overlay">
     <div id="adblock-popup">
@@ -2520,28 +2552,6 @@ if (btn) {
   });
 }
 
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome from showing its own mini-infobar
-  e.preventDefault();
-  // Save the event so it can be triggered later
-  deferredPrompt = e;
-  // Show your custom button
-  installBtn.style.display = 'block';
-
-  installBtn.addEventListener('click', async () => {
-    // Show the install prompt
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to the install prompt: ${outcome}`);
-    // We've used the prompt, and can't use it again
-    deferredPrompt = null;
-    installBtn.style.display = 'none';
-  });
-});
       
 
 document.getElementById('bookmark-btn').addEventListener('click', function() {
