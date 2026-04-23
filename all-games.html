@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-11292QMYXH"></script>
 <script>
@@ -17,14 +16,6 @@
   <link rel="canonical" href="https://homeworkplanet.github.io/home.html">
   <title>Homework Planet - Best Browser Online Homework Games for Striving Students</title>
   <link rel="icon" href="https://png.pngtree.com/png-clipart/20221219/ourmid/pngtree-pencil-clipart-png-image_6529094.png" type="image/png">
-
-  <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
 
   <script>
   (function () {
@@ -472,7 +463,7 @@ img.broken-icon {
 #changelog-btn:active {
     transform: translate(-50%, 0);
 }
-       #installBtn {
+       #bookmark-btn {
     position: fixed;
     top: 14px;
     left: 32%;                    
@@ -493,7 +484,7 @@ img.broken-icon {
     white-space: nowrap;
   }
 
-  #installBtn:hover {
+  #bookmark-btn:hover {
     background: #28304f;
     border-color: #4f7cff;
     box-shadow: 0 0 12px rgba(79, 124, 255, 0.35);
@@ -501,7 +492,7 @@ img.broken-icon {
     transform: translateX(-50%) translateY(-1px);
   }
 
-  #installBtn:active {
+  #bookmark-btn:active {
     transform: translateX(-50%) translateY(0);
   }
 
@@ -613,42 +604,10 @@ img.broken-icon {
     <span>Changelog</span>
 </button>
 
-  <link rel="manifest" href="manifest.json">
-
-   <button id="installBtn">
+   <button id="bookmark-btn">
     <span>📚</span>
-    <span>Install App</span>
+    <span>Hidden Bookmark</span>
 </button>
-
-  <script>
-  let deferredPrompt;
-  const installBtn = document.getElementById('installBtn');
-
-  // 1. Listen for the browser's hidden "can install" event
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault(); // Stop the default mini-bar
-    deferredPrompt = e; // Save the event for later
-    installBtn.style.display = 'block'; // Show your button
-  });
-
-  // 2. When the user clicks your button...
-  installBtn.addEventListener('click', async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt(); // Show the "Create Shortcut" dialog
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`User response: ${outcome}`);
-      deferredPrompt = null;
-      installBtn.style.display = 'none';
-    }
-  });
-</script>
-
-<script>
-  // Register the Service Worker
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js');
-  }
-</script>
 
   <div id="adblock-overlay">
     <div id="adblock-popup">
@@ -2551,8 +2510,6 @@ if (btn) {
     }, 600);
   });
 }
-
-      
 
 document.getElementById('bookmark-btn').addEventListener('click', function() {
     // 1. Define original states
