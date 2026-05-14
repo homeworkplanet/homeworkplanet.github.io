@@ -116,12 +116,14 @@ img.broken-icon {
       max-width: 1200px;
       margin: auto;
     }
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 14px;
-      justify-items: center;
-    }
+   .games-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 100px);   /* Forces exactly 10 columns */
+  gap: 16px;                                  /* Nice spacing */
+  justify-content: center;                    /* Centers the whole grid */
+  margin: 0 auto;
+  max-width: 1180px;                          /* Keeps it neat */
+}
     .game-card {
       width: 100px;
       height: 100px;
