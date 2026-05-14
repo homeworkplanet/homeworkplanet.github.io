@@ -62,7 +62,7 @@ img.broken-icon {
   /* Center + Bold text */
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-: center !important;
   text-align: center !important;
 
   font-family: system-ui, Arial, sans-serif !important;
@@ -111,7 +111,7 @@ img.broken-icon {
       font-size: 14px;
       color: #ff5e5e;
     }
-    .content {
+    . {
       padding: 100px 24px 40px;
       max-width: 1200px;
       margin: auto;
@@ -144,7 +144,7 @@ img.broken-icon {
       border-radius: 0 0 12px 12px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-: space-between;
       gap: 6px;
     }
     .game-title {
@@ -160,7 +160,7 @@ img.broken-icon {
   z-index: 100000;
   display: none;
   align-items: center;
-  justify-content: center;
+  justify-: center;
   backdrop-filter: blur(6px);
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -277,7 +277,7 @@ img.broken-icon {
     .socials-footer {
       margin-top: 40px;
       display: flex;
-      justify-content: center;
+      justify-: center;
       gap: 20px;
       padding-bottom: 30px;
     }
@@ -496,6 +496,38 @@ img.broken-icon {
     transform: translateX(-50%) translateY(0);
   }
 
+    /* Continue Playing Top Bar */
+.recent-bar {
+  margin-bottom: 30px;
+  background: rgba(28, 34, 60, 0.7);
+  border-radius: 16px;
+  padding: 16px 20px;
+  border: 1px solid rgba(79, 124, 255, 0.2);
+}
+
+.recent-grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #4f7cff #1c223c;
+}
+
+.recent-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.recent-grid::-webkit-scrollbar-thumb {
+  background: #4f7cff;
+  border-radius: 10px;
+}
+
+.recent-bar .game-card-container {
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
     
   </style>
   
@@ -640,6 +672,14 @@ img.broken-icon {
   All games run in your browser, work on Chromebooks, and requires no downloads. Below are
   <b>all of the games and tools our website offers. Shoutout to StudiesQuest (studiesquest.github.io)</b>
 </p>
+
+  <!-- CONTINUE PLAYING BAR -->
+  <div id="recent-bar" class="recent-bar" style="display: none;">
+    <h2 style="margin: 0 0 12px 0; font-size: 22px;">▶ Continue Playing</h2>
+    <div class="recent-grid" id="recent-grid"></div>
+  </div>
+
+  <br>
   
 <!-- GAMES CATEGORY -->
 <div class="category-section">
@@ -2851,6 +2891,75 @@ document.getElementById('bookmark-btn').addEventListener('click', function() {
 });
       
   </script>
+
+  <script>
+  // ==================== CONTINUE PLAYING FEATURE ====================
+function addToRecentlyPlayed(gameName, gameUrl, imgSrc) {
+  let recent = JSON.parse(localStorage.getItem('homeworkplanet-recent') || '[]');
+  
+  recent = recent.filter(item => item.name !== gameName);
+  
+  recent.unshift({
+    name: gameName,
+    url: gameUrl,
+    img: imgSrc
+  });
+  
+  recent = recent.slice(0, 10); // max 10 games
+  localStorage.setItem('homeworkplanet-recent', JSON.stringify(recent));
+  
+  renderRecentBar();
+}
+
+function renderRecentBar() {
+  const recent = JSON.parse(localStorage.getItem('homeworkplanet-recent') || '[]');
+  const container = document.getElementById('recent-grid');
+  const bar = document.getElementById('recent-bar');
+  
+  if (recent.length === 0) {
+    bar.style.display = 'none';
+    return;
+  }
+  
+  bar.style.display = 'block';
+  container.innerHTML = '';
+  
+  recent.forEach(game => {
+    const div = document.createElement('div');
+    div.className = 'game-card-container';
+    div.innerHTML = `
+      <a href="${game.url}">
+        <div class="game-card">
+          <img src="${game.img}" alt="${game.name}" onerror="this.classList.add('broken-icon'); this.src='https://via.placeholder.com/100x100/1e40af/ffffff?text=Game';">
+        </div>
+        <div class="game-label">
+          <span class="game-title">${game.name}</span>
+        </div>
+      </a>
+    `;
+    container.appendChild(div);
+  });
+}
+
+// Auto track game clicks
+document.addEventListener('DOMContentLoaded', () => {
+  renderRecentBar();
+
+  document.querySelectorAll('.game-card-container a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const container = this.closest('.game-card-container');
+      const titleEl = container.querySelector('.game-title');
+      const gameName = titleEl ? titleEl.textContent.trim() : 
+                       container.querySelector('.game-label').textContent.trim();
+      
+      const img = container.querySelector('img').src;
+      const url = this.href;
+
+      addToRecentlyPlayed(gameName, url, img);
+    });
+  });
+});
+</script>
 
   
   <script src="panichome.js"></script>
