@@ -434,6 +434,44 @@ img.broken-icon {
   #submit-game-btn:active {
     transform: translateX(-50%) translateY(0);
   }
+      #chatroom-btn {
+    position: fixed;
+    top: 160px;
+    left: 94.5%;
+    transform: translate(-50%, 0);
+    z-index: 9999;
+    
+    background: #1c223c;
+    color: #4f7cff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 14px;
+    border: 1px solid #4f7cff44;
+    
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font-family: sans-serif;
+    
+    /* Optional: prevent text selection */
+    user-select: none;
+}
+
+#chatroom-btn:hover {
+    background: #28304f;
+    border-color: #4f7cff;
+    box-shadow: 0 0 12px rgba(79, 124, 255, 0.35);
+    color: #fff;
+    transform: translate(-50%, -1px);
+}
+
+#chatroom-btn:active {
+    transform: translate(-50%, 0);
+}
      #bookmark-btn {
     position: fixed;
     top: 14px;
@@ -640,6 +678,13 @@ img.broken-icon {
     <span>✨</span>
     <span>Changelog</span>
 </button>
+
+   <a href="chatroom.html" style="text-decoration: none;">
+    <button id="chatroom-btn">
+        <span>💬</span>
+        <span>Chatroom</span>
+    </button>
+</a>
 
      <button id="bookmark-btn">
     <span>📚</span>
