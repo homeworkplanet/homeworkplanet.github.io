@@ -127,6 +127,7 @@ function showPreloader() {
         // Fade into matching dark color instead of white
         preloader.style.background = 'linear-gradient(rgba(15,18,32,0.98), rgba(15,18,32,0.98))';
         preloader.style.opacity = '0';
+        preloader.style.pointerEvents = 'none';  // allow clicks on ads underneath during fade
         
         setTimeout(() => {
             preloader.remove();
