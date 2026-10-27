@@ -64,11 +64,53 @@
             background: rgba(255,255,255,0.7);
             transform: scale(1.05);
         }
+        /* Video ad overlay */
+        #video-ad-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000;
+            z-index: 1000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #video-ad-overlay video {
+            max-width: 100%;
+            max-height: 85vh;
+            background: #000;
+        }
+        #ad-skip-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.5);
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: none;
+            z-index: 1000001;
+        }
+        #ad-skip-btn:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        #ad-loading {
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
 
 <script>
+const VAST_AD_TAG = 'https://windy-imagination.com/dnm_F.zSd/GrNrvVZQG/UN/ZeWmd9RunZ/UMl/k/PlTBcH1cNLTsUC5PMiDmkatuNAzWU/1dNETgk/xzM/yZZFsVaiW/1rpPdvDe0/xj';
+
 function showPreloader() {
     // Skip preloader if user is coming back with back button
     if (performance.navigation.type === 2 ||
@@ -138,9 +180,130 @@ function showPreloader() {
         }, 1200);
     }
 
-    // Button clicks
-    document.getElementById('skip-preloader').addEventListener('click', closePreloader);
-    document.getElementById('enter-site').addEventListener('click', closePreloader);
+    function showVideoAdThenClose() {
+        // Prevent double-clicks
+        document.getElementById('skip-preloader').style.pointerEvents = 'none';
+        document.getElementById('enter-site').style.pointerEvents = 'none';
+
+        const overlay = document.createElement('div');
+        overlay.id = 'video-ad-overlay';
+
+        const loading = document.createElement('div');
+        loading.id = 'ad-loading';
+        loading.textContent = 'Loading ad...';
+        overlay.appendChild(loading);
+
+        const video = document.createElement('video');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.controls = false;
+        video.style.display = 'none';
+
+        const skipBtn = document.createElement('button');
+        skipBtn.id = 'ad-skip-btn';
+        skipBtn.textContent = 'Skip Ad';
+
+        overlay.appendChild(video);
+        overlay.appendChild(skipBtn);
+        document.body.appendChild(overlay);
+
+        let adFinished = false;
+
+        function finishAd() {
+            if (adFinished) return;
+            adFinished = true;
+            try {
+                video.pause();
+                video.src = '';
+            } catch (e) {}
+            overlay.remove();
+            closePreloader();
+        }
+
+        skipBtn.addEventListener('click', finishAd);
+        video.addEventListener('ended', finishAd);
+        video.addEventListener('error', () => {
+            // If video fails, still let user through after a short delay
+            setTimeout(finishAd, 1500);
+        });
+
+        // Fetch VAST and play
+        fetch(VAST_AD_TAG)
+            .then(r => r.text())
+            .then(xmlText => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(xmlText, 'text/xml');
+
+                // Fire Impression tracking
+                const impressions = xml.querySelectorAll('Impression');
+                impressions.forEach(imp => {
+                    const url = imp.textContent.trim();
+                    if (url) {
+                        const img = new Image();
+                        img.src = url;
+                    }
+                });
+
+                // Prefer mp4 MediaFile
+                let mediaUrl = null;
+                const mediaFiles = xml.querySelectorAll('MediaFile');
+                for (const mf of mediaFiles) {
+                    const type = (mf.getAttribute('type') || '').toLowerCase();
+                    const url = mf.textContent.trim();
+                    if (type.includes('mp4') && url) {
+                        mediaUrl = url;
+                        break;
+                    }
+                }
+                // Fallback to first media file
+                if (!mediaUrl && mediaFiles.length) {
+                    mediaUrl = mediaFiles[0].textContent.trim();
+                }
+
+                // Skip offset (default 15s from this tag)
+                let skipSeconds = 15;
+                const linear = xml.querySelector('Linear');
+                if (linear) {
+                    const so = linear.getAttribute('skipoffset');
+                    if (so && so.startsWith('00:00:')) {
+                        const parts = so.split(':');
+                        skipSeconds = parseInt(parts[2], 10) || 15;
+                    }
+                }
+
+                if (!mediaUrl) {
+                    loading.textContent = 'Ad unavailable';
+                    setTimeout(finishAd, 2000);
+                    return;
+                }
+
+                loading.remove();
+                video.style.display = 'block';
+                video.src = mediaUrl;
+                video.muted = false;
+                video.play().catch(() => {
+                    // Autoplay with sound often blocked; try muted then unmute on interaction
+                    video.muted = true;
+                    video.play().catch(() => setTimeout(finishAd, 2000));
+                });
+
+                // Show skip button after skipoffset
+                setTimeout(() => {
+                    if (!adFinished) {
+                        skipBtn.style.display = 'block';
+                    }
+                }, skipSeconds * 1000);
+            })
+            .catch(err => {
+                console.warn('VAST load failed', err);
+                loading.textContent = 'Ad unavailable';
+                setTimeout(finishAd, 2000);
+            });
+    }
+
+    // Button clicks now show the video ad first
+    document.getElementById('skip-preloader').addEventListener('click', showVideoAdThenClose);
+    document.getElementById('enter-site').addEventListener('click', showVideoAdThenClose);
 }
 
 showPreloader();
