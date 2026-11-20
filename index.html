@@ -109,7 +109,7 @@
 <body>
 
 <script>
-const VAST_AD_TAG = 'https://windy-imagination.com/dnm_F.zSd/GrNrvVZQG/UN/ZeWmd9RunZ/UMl/k/PlTBcH1cNLTsUC5PMiDmkatuNAzWU/1dNETgk/xzM/yZZFsVaiW/1rpPdvDe0/xj';
+const VAST_AD_TAG = 'https://windy-imagination.com/d/m/F/z.dZG/N/vIZjGcUs/eecm/9/ufZFUDlKkhPMT/cL1CNQTIUU5qMTDkkYtQNWzUUp1wNXTqk/xYMHw_';
 
 function showPreloader() {
     // Skip preloader if user is coming back with back button
@@ -181,125 +181,194 @@ function showPreloader() {
     }
 
     function showVideoAdThenClose() {
-        // Prevent double-clicks
-        document.getElementById('skip-preloader').style.pointerEvents = 'none';
-        document.getElementById('enter-site').style.pointerEvents = 'none';
+    document.getElementById('skip-preloader').style.pointerEvents = 'none';
+    document.getElementById('enter-site').style.pointerEvents = 'none';
 
-        const overlay = document.createElement('div');
-        overlay.id = 'video-ad-overlay';
+    const overlay = document.createElement('div');
+    overlay.id = 'video-ad-overlay';
 
-        const loading = document.createElement('div');
-        loading.id = 'ad-loading';
-        loading.textContent = 'Loading ad...';
-        overlay.appendChild(loading);
+    const loading = document.createElement('div');
+    loading.id = 'ad-loading';
+    loading.textContent = 'Loading ad...';
+    overlay.appendChild(loading);
 
-        const video = document.createElement('video');
-        video.setAttribute('playsinline', '');
-        video.setAttribute('webkit-playsinline', '');
-        video.controls = false;
-        video.style.display = 'none';
+    const video = document.createElement('video');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.controls = false;
+    video.style.display = 'none';
+    video.style.cursor = 'pointer';
 
-        const skipBtn = document.createElement('button');
-        skipBtn.id = 'ad-skip-btn';
-        skipBtn.textContent = 'Skip Ad';
+    const skipBtn = document.createElement('button');
+    skipBtn.id = 'ad-skip-btn';
+    skipBtn.textContent = 'Skip Ad';
 
-        overlay.appendChild(video);
-        overlay.appendChild(skipBtn);
-        document.body.appendChild(overlay);
+    overlay.appendChild(video);
+    overlay.appendChild(skipBtn);
+    document.body.appendChild(overlay);
 
-        let adFinished = false;
+    let adFinished = false;
 
-        function finishAd() {
-            if (adFinished) return;
-            adFinished = true;
-            try {
-                video.pause();
-                video.src = '';
-            } catch (e) {}
-            overlay.remove();
-            closePreloader();
-        }
+    function firePixels(urls) {
+        urls.forEach(url => {
+            if (url) {
+                const img = new Image();
+                img.src = url.trim();
+            }
+        });
+    }
 
-        skipBtn.addEventListener('click', finishAd);
-        video.addEventListener('ended', finishAd);
-        video.addEventListener('error', () => {
-            // If video fails, still let user through after a short delay
-            setTimeout(finishAd, 1500);
+    function finishAd() {
+        if (adFinished) return;
+        adFinished = true;
+        try {
+            video.pause();
+            video.src = '';
+        } catch (e) {}
+        overlay.remove();
+        closePreloader();
+    }
+
+    skipBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        finishAd();
+    });
+    video.addEventListener('ended', finishAd);
+    video.addEventListener('error', () => setTimeout(finishAd, 1500));
+
+    // Recursive VAST fetcher (unwraps up to 3 levels of VAST wrappers)
+    async function loadVast(url, impressions = [], tracking = {}, clickThrough = null, clickTracking = [], depth = 0) {
+        if (depth > 3) throw new Error('Too many VAST redirects');
+
+        const res = await fetch(url);
+        const xmlText = await res.text();
+        const xml = new DOMParser().parseFromString(xmlText, 'text/xml');
+
+        // Collect impressions at every wrapper level
+        xml.querySelectorAll('Impression').forEach(imp => impressions.push(imp.textContent.trim()));
+
+        // Collect quartile/playback tracking events
+        xml.querySelectorAll('Tracking').forEach(tr => {
+            const event = tr.getAttribute('event');
+            if (event) {
+                if (!tracking[event]) tracking[event] = [];
+                tracking[event].push(tr.textContent.trim());
+            }
         });
 
-        // Fetch VAST and play
-        fetch(VAST_AD_TAG)
-            .then(r => r.text())
-            .then(xmlText => {
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(xmlText, 'text/xml');
+        // Collect click-through & click tracking
+        const ct = xml.querySelector('ClickThrough');
+        if (ct && ct.textContent.trim()) clickThrough = ct.textContent.trim();
+        xml.querySelectorAll('ClickTracking').forEach(ctr => clickTracking.push(ctr.textContent.trim()));
 
-                // Fire Impression tracking
-                const impressions = xml.querySelectorAll('Impression');
-                impressions.forEach(imp => {
-                    const url = imp.textContent.trim();
-                    if (url) {
-                        const img = new Image();
-                        img.src = url;
-                    }
-                });
+        // Check if this is a VAST Wrapper pointing to another VAST URL
+        const wrapperUri = xml.querySelector('VASTAdTagURI');
+        if (wrapperUri && wrapperUri.textContent.trim()) {
+            return loadVast(wrapperUri.textContent.trim(), impressions, tracking, clickThrough, clickTracking, depth + 1);
+        }
 
-                // Prefer mp4 MediaFile
-                let mediaUrl = null;
-                const mediaFiles = xml.querySelectorAll('MediaFile');
-                for (const mf of mediaFiles) {
-                    const type = (mf.getAttribute('type') || '').toLowerCase();
-                    const url = mf.textContent.trim();
-                    if (type.includes('mp4') && url) {
-                        mediaUrl = url;
-                        break;
-                    }
+        return { xml, impressions, tracking, clickThrough, clickTracking };
+    }
+
+    loadVast(VAST_AD_TAG)
+        .then(({ xml, impressions, tracking, clickThrough, clickTracking }) => {
+            // Prefer mp4 MediaFile
+            let mediaUrl = null;
+            const mediaFiles = xml.querySelectorAll('MediaFile');
+            for (const mf of mediaFiles) {
+                const type = (mf.getAttribute('type') || '').toLowerCase();
+                const url = mf.textContent.trim();
+                if (type.includes('mp4') && url) {
+                    mediaUrl = url;
+                    break;
                 }
-                // Fallback to first media file
-                if (!mediaUrl && mediaFiles.length) {
-                    mediaUrl = mediaFiles[0].textContent.trim();
+            }
+            if (!mediaUrl && mediaFiles.length) {
+                mediaUrl = mediaFiles[0].textContent.trim();
+            }
+
+            // Parse skipoffset (supports HH:MM:SS)
+            let skipSeconds = 15;
+            const linear = xml.querySelector('Linear');
+            if (linear) {
+                const so = linear.getAttribute('skipoffset');
+                if (so && so.includes(':')) {
+                    const parts = so.split(':').map(Number);
+                    skipSeconds = (parts[0] * 3600) + (parts[1] * 60) + (parts[2] || 0);
                 }
+            }
 
-                // Skip offset (default 15s from this tag)
-                let skipSeconds = 15;
-                const linear = xml.querySelector('Linear');
-                if (linear) {
-                    const so = linear.getAttribute('skipoffset');
-                    if (so && so.startsWith('00:00:')) {
-                        const parts = so.split(':');
-                        skipSeconds = parseInt(parts[2], 10) || 15;
-                    }
-                }
-
-                if (!mediaUrl) {
-                    loading.textContent = 'Ad unavailable';
-                    setTimeout(finishAd, 2000);
-                    return;
-                }
-
-                loading.remove();
-                video.style.display = 'block';
-                video.src = mediaUrl;
-                video.muted = false;
-                video.play().catch(() => {
-                    // Autoplay with sound often blocked; try muted then unmute on interaction
-                    video.muted = true;
-                    video.play().catch(() => setTimeout(finishAd, 2000));
-                });
-
-                // Show skip button after skipoffset
-                setTimeout(() => {
-                    if (!adFinished) {
-                        skipBtn.style.display = 'block';
-                    }
-                }, skipSeconds * 1000);
-            })
-            .catch(err => {
-                console.warn('VAST load failed', err);
+            if (!mediaUrl) {
                 loading.textContent = 'Ad unavailable';
                 setTimeout(finishAd, 2000);
+                return;
+            }
+
+            // Fire impressions once media is confirmed
+            firePixels(impressions);
+
+            // Handle user clicking the video ad
+            if (clickThrough) {
+                video.addEventListener('click', () => {
+                    firePixels(clickTracking);
+                    window.open(clickThrough, '_blank', 'noopener,noreferrer');
+                });
+            }
+
+            // Track playback quartiles (start, 25%, 50%, 75%, complete)
+            const firedEvents = new Set();
+            video.addEventListener('play', () => {
+                if (!firedEvents.has('start') && tracking.start) {
+                    firedEvents.add('start');
+                    firePixels(tracking.start);
+                }
             });
-    }
+
+            video.addEventListener('timeupdate', () => {
+                if (!video.duration) return;
+                const pct = video.currentTime / video.duration;
+                if (pct >= 0.25 && !firedEvents.has('firstQuartile') && tracking.firstQuartile) {
+                    firedEvents.add('firstQuartile');
+                    firePixels(tracking.firstQuartile);
+                }
+                if (pct >= 0.50 && !firedEvents.has('midpoint') && tracking.midpoint) {
+                    firedEvents.add('midpoint');
+                    firePixels(tracking.midpoint);
+                }
+                if (pct >= 0.75 && !firedEvents.has('thirdQuartile') && tracking.thirdQuartile) {
+                    firedEvents.add('thirdQuartile');
+                    firePixels(tracking.thirdQuartile);
+                }
+            });
+
+            video.addEventListener('ended', () => {
+                if (!firedEvents.has('complete') && tracking.complete) {
+                    firedEvents.add('complete');
+                    firePixels(tracking.complete);
+                }
+            });
+
+            loading.remove();
+            video.style.display = 'block';
+            video.src = mediaUrl;
+            video.muted = false;
+            video.play().catch(() => {
+                video.muted = true;
+                video.play().catch(() => setTimeout(finishAd, 2000));
+            });
+
+            setTimeout(() => {
+                if (!adFinished) {
+                    skipBtn.style.display = 'block';
+                }
+            }, skipSeconds * 1000);
+        })
+        .catch(err => {
+            console.warn('VAST load failed', err);
+            loading.textContent = 'Ad unavailable';
+            setTimeout(finishAd, 2000);
+        });
+}
 
     // Button clicks now show the video ad first
     document.getElementById('skip-preloader').addEventListener('click', showVideoAdThenClose);
