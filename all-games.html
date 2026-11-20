@@ -589,6 +589,37 @@ img.broken-icon {
 }
 
     
+
+/* Native Banner Widget */
+.native-banner-container {
+  width: 100%;
+  max-width: 728px;
+  margin: 0 auto 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(28, 34, 60, 0.6);
+  border: 1px solid rgba(79, 124, 255, 0.18);
+  min-height: 90px;
+}
+
+.native-banner-container > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .native-banner-container {
+    max-width: 100%;
+    margin: 0 0 20px;
+    border-radius: 12px;
+  }
+}
+
   </style>
   
 </head>
@@ -739,6 +770,12 @@ img.broken-icon {
   All games run in your browser, work on Chromebooks, and requires no downloads. Below are
   <b>all of the games and tools our website offers. Shoutout to StudiesQuest (studiesquest.github.io)</b>
 </p>
+
+  <!-- Native Banner Ad -->
+  <div class="native-banner-container">
+    <script async="async" data-cfasync="false" src="https://bauval.org/21/1c3239dd47834173d92cb41ab7f2b05f"></script>
+    <div id="container-1c3239dd47834173d92cb41ab7f2b05f"></div>
+  </div>
 
   <!-- CONTINUE PLAYING BAR -->
   <div id="recent-bar" class="recent-bar" style="display: none;">
