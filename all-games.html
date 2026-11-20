@@ -665,8 +665,26 @@ img.broken-icon {
   padding: 20px;
 }
 .case-overlay.open { display: flex; }
-.case-modal {
+.case-stack {
   width: min(860px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.case-banner-slot {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 60px;
+}
+.case-banner-slot iframe,
+.case-banner-slot img,
+.case-banner-slot > div {
+  max-width: 100%;
+}
+.case-modal {
+  width: 100%;
   background: #12182b;
   border: 1px solid rgba(79, 124, 255, 0.28);
   border-radius: 18px;
@@ -971,19 +989,6 @@ img.broken-icon {
     <script async="async" data-cfasync="false" src="https://bauval.org/21/1c3239dd47834173d92cb41ab7f2b05f"></script>
     <div id="container-1c3239dd47834173d92cb41ab7f2b05f"></div>
   </div>
-
-  <script>
-(function(jzcy){
-var d = document,
-    s = d.createElement('script'),
-    l = d.currentScript || d.scripts[d.scripts.length - 1];
-s.settings = jzcy || {};
-s.src = "//shameful-farm.com/bgXyVcs/d.Grl/0iY/WLch/xe/m/9RuWZLUAlfktPgTncK2VNBDdQP3YOVDCkJtTNVznYm0dNJDyco5UMJwX";
-s.async = true;
-s.referrerPolicy = 'no-referrer-when-downgrade';
-l.parentNode.insertBefore(s, l);
-})({})
-</script>
 
   <div class="case-launch-wrap">
     <button type="button" id="case-launch" class="case-launch">Open a Case</button>
@@ -4045,6 +4050,7 @@ document.querySelectorAll('img').forEach(img => {
 
 
 <div id="case-overlay" class="case-overlay" aria-hidden="true">
+  <div class="case-stack">
   <div class="case-modal" role="dialog" aria-modal="true" aria-label="Random game case">
     <button type="button" class="case-close" id="case-close" aria-label="Close">&times;</button>
     <h2>Open a Case</h2>
@@ -4057,6 +4063,8 @@ document.querySelectorAll('img').forEach(img => {
       <button type="button" class="case-spin" id="case-spin">Spin</button>
       <a class="case-play" id="case-play" href="#">Play this game</a>
     </div>
+  </div>
+  <div id="case-banner-slot" class="case-banner-slot"></div>
   </div>
 </div>
 
@@ -4098,9 +4106,23 @@ document.querySelectorAll('img').forEach(img => {
   var playBtn = document.getElementById("case-play");
   var spinning = false;
 
+  var caseBannerLoaded = false;
+  function loadCaseBanner() {
+    if (caseBannerLoaded) return;
+    caseBannerLoaded = true;
+    var slot = document.getElementById("case-banner-slot");
+    if (!slot) return;
+    var s = document.createElement("script");
+    s.settings = {};
+    s.src = "//shameful-farm.com/bgXyVcs/d.Grl/0iY/WLch/xe/m/9RuWZLUAlfktPgTncK2VNBDdQP3YOVDCkJtTNVznYm0dNJDyco5UMJwX";
+    s.async = true;
+    s.referrerPolicy = "no-referrer-when-downgrade";
+    slot.appendChild(s);
+  }
   function openCase() {
     overlay.classList.add("open");
     overlay.setAttribute("aria-hidden", "false");
+    loadCaseBanner();
     if (!track.children.length) spin(true);
   }
   function closeCase() {
